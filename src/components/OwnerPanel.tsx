@@ -26,6 +26,10 @@ interface OwnerPanelProps {
   staff: StaffMember[];
   tables: CafeTable[];
   plans: SaaSPlan[];
+  activeStaffRole?: 'owner' | 'manager' | 'cashier' | 'kitchen';
+  lastPolledAt?: string;
+  onChangeStaffRole?: (role: 'owner' | 'manager' | 'cashier' | 'kitchen') => void;
+  onPollOrders?: () => Promise<void>;
   onUpdateTenant: (updated: Partial<TenantCafe>) => void;
   onAddProduct: (prod: Product) => void;
   onUpdateProduct: (productId: string, updated: Partial<Product>) => void;
@@ -63,6 +67,10 @@ export const OwnerPanel: React.FC<OwnerPanelProps> = ({
   staff,
   tables,
   plans,
+  activeStaffRole = 'owner',
+  lastPolledAt = 'هم‌اکنون',
+  onChangeStaffRole,
+  onPollOrders,
   onUpdateTenant,
   onAddProduct,
   onUpdateProduct,
@@ -113,20 +121,28 @@ export const OwnerPanel: React.FC<OwnerPanelProps> = ({
   const [newStaffPhone, setNewStaffPhone] = useState<string>('');
   const [newStaffRole, setNewStaffRole] = useState<'manager' | 'cashier' | 'kitchen'>('cashier');
 
-  // Short-Polling Simulation (Every 6s, pausing when tab is hidden per Hard Hosting Constraints)
+  // Real HTTP Short-Polling (Every 6s via GET /api/v1/tenant/orders/poll, pausing when tab is hidden)
   useEffect(() => {
     const handleVis = () => setIsTabVisible(!document.hidden);
     document.addEventListener('visibilitychange', handleVis);
     const timer = setInterval(() => {
       if (!document.hidden) {
-        setPollingSeconds((prev) => (prev <= 1 ? 6 : prev - 1));
+        setPollingSeconds((prev) => {
+          if (prev <= 1) {
+            if (onPollOrders) {
+              void onPollOrders();
+            }
+            return 6;
+          }
+          return prev - 1;
+        });
       }
     }, 1000);
     return () => {
       document.removeEventListener('visibilitychange', handleVis);
       clearInterval(timer);
     };
-  }, []);
+  }, [onPollOrders]);
 
   const showToast = (msg: string) => {
     setNotice(msg);
@@ -223,61 +239,90 @@ export const OwnerPanel: React.FC<OwnerPanelProps> = ({
             </button>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Active Staff Role RBAC Switcher */}
+          <div className="mb-3 p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-[11px] space-y-1">
+            <label className="block text-[10px] text-outline font-bold">
+              نقش پرسنلی فعال (RBAC Middleware):
+            </label>
+            <select
+              value={activeStaffRole}
+              onChange={(e) => {
+                const nextRole = e.target.value as 'owner' | 'manager' | 'cashier' | 'kitchen';
+                if (onChangeStaffRole) onChangeStaffRole(nextRole);
+                if (nextRole === 'kitchen') setActiveTab('orders');
+                else if (nextRole === 'cashier' && !['dashboard', 'orders', 'pos', 'accounting'].includes(activeTab)) {
+                  setActiveTab('pos');
+                }
+                showToast(`نقش فعال به «${nextRole}» تغییر یافت (ارسال در هدر X-Staff-Role)`);
+              }}
+              className="w-full bg-surface-container px-2 py-1.5 rounded-lg text-primary font-bold text-[11px] focus:outline-none cursor-pointer"
+            >
+              <option value="owner">مالک کافه (Owner - دسترسی کامل)</option>
+              <option value="manager">مدیر داخلی (Manager - منو، انبار، سفارش)</option>
+              <option value="cashier">صندوق‌دار (Cashier - POS، فیش، شیفت)</option>
+              <option value="kitchen">باریستا / آشپزخانه (Kitchen - برد سفارش)</option>
+            </select>
+          </div>
+
+          {/* Navigation Menu (Scoped by Staff Role RBAC) */}
           <nav className="flex lg:flex-col gap-1.5 overflow-x-auto no-scrollbar pb-2 lg:pb-0">
             {[
-              { id: 'dashboard', label: 'پیشخوان و آمار', icon: 'dashboard' },
+              { id: 'dashboard', label: 'پیشخوان و آمار', icon: 'dashboard', roles: ['owner', 'manager', 'cashier'] },
               {
                 id: 'orders',
                 label: 'برد زنده سفارش‌ها',
                 icon: 'receipt_long',
                 badge: tenantOrders.filter((o) => o.status !== 'delivered').length,
+                roles: ['owner', 'manager', 'cashier', 'kitchen'],
               },
-              { id: 'pos', label: 'صندوق فروشگاهی (POS)', icon: 'point_of_sale' },
-              { id: 'products', label: 'منو و محصولات', icon: 'restaurant_menu' },
-              { id: 'accounting', label: 'حسابداری و صندوق', icon: 'account_balance_wallet' },
+              { id: 'pos', label: 'صندوق فروشگاهی (POS)', icon: 'point_of_sale', roles: ['owner', 'manager', 'cashier'] },
+              { id: 'products', label: 'منو و محصولات', icon: 'restaurant_menu', roles: ['owner', 'manager', 'kitchen'] },
+              { id: 'accounting', label: 'حسابداری و صندوق', icon: 'account_balance_wallet', roles: ['owner', 'cashier'] },
               {
                 id: 'inventory',
                 label: 'انبار و رسپی مواد',
                 icon: 'inventory_2',
                 alert: lowStockItems.length,
+                roles: ['owner', 'manager'],
               },
-              { id: 'staff', label: 'پرسنل و دسترسی‌ها', icon: 'badge' },
-              { id: 'settings', label: 'میزها، QR و بات‌ها', icon: 'qr_code_2' },
-              { id: 'subscription', label: 'اشتراک و صورت‌حساب', icon: 'workspace_premium' },
-            ].map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setActiveTab(item.id as OwnerTab)}
-                className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[13px] font-semibold whitespace-nowrap transition-all ${
-                  activeTab === item.id
-                    ? 'bg-primary text-on-primary shadow-xs'
-                    : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="material-symbols-outlined text-[19px]">{item.icon}</span>
-                  <span>{item.label}</span>
-                </div>
-                {item.badge ? (
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                      activeTab === item.id
-                        ? 'bg-on-primary text-primary'
-                        : 'bg-secondary-container text-primary'
-                    }`}
-                  >
-                    {toPersianNum(item.badge)}
-                  </span>
-                ) : null}
-                {item.alert ? (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-error text-on-error">
-                    {toPersianNum(item.alert)} هشدار
-                  </span>
-                ) : null}
-              </button>
-            ))}
+              { id: 'staff', label: 'پرسنل و دسترسی‌ها', icon: 'badge', roles: ['owner'] },
+              { id: 'settings', label: 'میزها، QR و بات‌ها', icon: 'qr_code_2', roles: ['owner'] },
+              { id: 'subscription', label: 'اشتراک و صورت‌حساب', icon: 'workspace_premium', roles: ['owner'] },
+            ]
+              .filter((item) => item.roles.includes(activeStaffRole))
+              .map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveTab(item.id as OwnerTab)}
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[13px] font-semibold whitespace-nowrap transition-all ${
+                    activeTab === item.id
+                      ? 'bg-primary text-on-primary shadow-xs'
+                      : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-[19px]">{item.icon}</span>
+                    <span>{item.label}</span>
+                  </div>
+                  {item.badge ? (
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                        activeTab === item.id
+                          ? 'bg-on-primary text-primary'
+                          : 'bg-secondary-container text-primary'
+                      }`}
+                    >
+                      {toPersianNum(item.badge)}
+                    </span>
+                  ) : null}
+                  {item.alert ? (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-error text-on-error">
+                      {toPersianNum(item.alert)} هشدار
+                    </span>
+                  ) : null}
+                </button>
+              ))}
           </nav>
         </div>
 
@@ -289,7 +334,7 @@ export const OwnerPanel: React.FC<OwnerPanelProps> = ({
               <span>{isTabVisible ? `${toPersianNum(pollingSeconds)} ثانیه` : 'متوقف'}</span>
             </div>
             <p className="text-outline text-[10px]">
-              بدون نیاز به WebSocket یا Redis (بهینه برای هاست اشتراکی)
+              آخرین سینک API: {lastPolledAt} (GET /api/v1/tenant/orders/poll)
             </p>
           </div>
           <button

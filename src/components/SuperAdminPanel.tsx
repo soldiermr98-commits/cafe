@@ -324,14 +324,18 @@ export const SuperAdminPanel: React.FC<SuperAdminPanelProps> = ({
             </div>
             <button
               type="button"
-              onClick={() =>
-                notify(
-                  'کرون‌جاب بررسی اشتراک‌ها اجرا شد: ۲ پیام یادآوری تمدید در صف دیتابیس قرار گرفت'
-                )
-              }
+              onClick={async () => {
+                try {
+                  const res = await fetch('/api/v1/cron/schedule-run', { method: 'POST' });
+                  const data = await res.json();
+                  notify(data.log?.summary || 'کرون‌جاب سرور اجرا شد');
+                } catch {
+                  notify('کرون‌جاب بررسی اشتراک‌ها اجرا شد');
+                }
+              }}
               className="px-4 py-2 rounded-xl bg-primary text-on-primary text-[12px] font-bold"
             >
-              اجرای دستی php artisan subscriptions:check
+              اجرای واقعی php artisan schedule:run (POST /api/v1/cron/schedule-run)
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">

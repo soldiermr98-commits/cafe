@@ -1,5 +1,5 @@
 // ===== IMPORTS & DEPENDENCIES =====
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   PlatformRoleView,
   TenantCafe,
@@ -31,6 +31,7 @@ import {
   INITIAL_TICKETS,
 } from './mockData';
 import { toPersianNum, toJalaliDate, toJalaliTime } from './utils/persian';
+import { cafeGolApi } from './api/client';
 import { CustomerApp } from './components/CustomerApp';
 import { OwnerPanel } from './components/OwnerPanel';
 import { SuperAdminPanel } from './components/SuperAdminPanel';
@@ -105,7 +106,6 @@ const buildDefaultStitchCart = (products: Product[]): CartItem[] => {
 
 // ===== CORE APPLICATION COMPONENT =====
 export default function App() {
-  // Active workspace view ('customer' matches Stitch screens by default)
   const [roleView, setRoleView] = useState<PlatformRoleView>('customer');
 
   // Theme state (persisted per user in localStorage)
@@ -133,13 +133,18 @@ export default function App() {
     }
   }, [isDark]);
 
-  // Multi-tenant SaaS state
-  const [plans] = useState<SaaSPlan[]>(INITIAL_PLANS);
+  // Multi-tenant & RBAC state synchronized with /api/v1/*
+  const [plans, setPlans] = useState<SaaSPlan[]>(INITIAL_PLANS);
   const [tenants, setTenants] = useState<TenantCafe[]>(INITIAL_TENANTS);
   const [activeTenantId, setActiveTenantId] = useState<string>('tenant_cafegol');
-  const [categories] = useState<Category[]>(INITIAL_CATEGORIES);
+  const [activeStaffRole, setActiveStaffRole] = useState<
+    'owner' | 'manager' | 'cashier' | 'kitchen'
+  >('owner');
+  const [lastPolledAt, setLastPolledAt] = useState<string>(toJalaliTime());
+
+  const [categories, setCategories] = useState<Category[]>(INITIAL_CATEGORIES);
   const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [tables] = useState<CafeTable[]>(INITIAL_TABLES);
+  const [tables, setTables] = useState<CafeTable[]>(INITIAL_TABLES);
   const [orders, setOrders] = useState<Order[]>(INITIAL_ORDERS);
   const [activeOrderId, setActiveOrderId] = useState<string | null>('ord_gl894');
   const [cart, setCart] = useState<CartItem[]>(() => buildDefaultStitchCart(INITIAL_PRODUCTS));
@@ -148,6 +153,49 @@ export default function App() {
   const [shift, setShift] = useState<CashRegisterShift>(INITIAL_SHIFT);
   const [staff, setStaff] = useState<StaffMember[]>(INITIAL_STAFF);
   const [tickets, setTickets] = useState<SupportTicket[]>(INITIAL_TICKETS);
+
+  // Fetch Platform Overview & Tenant-Isolated Bootstrap from /api/v1/*
+  const syncTenantFromApi = useCallback(
+    async (tenantId: string, staffRole: string) => {
+      try {
+        const [platformData, tenantData] = await Promise.all([
+          cafeGolApi.getPlatformOverview(),
+          cafeGolApi.getTenantBootstrap(tenantId, staffRole),
+        ]);
+        setPlans(platformData.plans);
+        setTenants(platformData.tenants);
+        setTickets(platformData.tickets);
+
+        setCategories(tenantData.categories);
+        setProducts(tenantData.products);
+        setTables(tenantData.tables);
+        setOrders(tenantData.orders);
+        setInventory(tenantData.inventory);
+        setLedger(tenantData.ledger);
+        setShift(tenantData.shift);
+        setStaff(tenantData.staff);
+        setLastPolledAt(toJalaliTime());
+      } catch {
+        // Fallback to local state if offline
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    void syncTenantFromApi(activeTenantId, activeStaffRole);
+  }, [activeTenantId, activeStaffRole, syncTenantFromApi]);
+
+  // Real HTTP Short Polling Handler (GET /api/v1/tenant/orders/poll)
+  const handlePollOrders = useCallback(async () => {
+    try {
+      const res = await cafeGolApi.pollTenantOrders(activeTenantId, activeStaffRole);
+      setOrders(res.orders);
+      setLastPolledAt(res.polledAt);
+    } catch {
+      // Ignore transient network errors during short polling
+    }
+  }, [activeTenantId, activeStaffRole]);
 
   const activeTenant =
     tenants.find((t) => t.id === activeTenantId) || tenants[0];
@@ -203,36 +251,6 @@ export default function App() {
 
   const handleRemoveFromCart = (cartItemId: string) => {
     setCart((prev) => prev.filter((item) => item.id !== cartItemId));
-  };
-
-  // Automatic BOM Recipe Inventory Deduction helper
-  const deductInventoryForOrderItems = (
-    orderItems: { productId: string; quantity: number }[]
-  ) => {
-    setInventory((prevInv) =>
-      prevInv.map((invItem) => {
-        let totalDeduct = 0;
-        for (const ordItem of orderItems) {
-          const prod = products.find((p) => p.id === ordItem.productId);
-          if (prod && prod.recipe) {
-            const recipeLine = prod.recipe.find(
-              (r) => r.inventoryItemId === invItem.id
-            );
-            if (recipeLine) {
-              totalDeduct += recipeLine.amount * ordItem.quantity;
-            }
-          }
-        }
-        if (totalDeduct > 0) {
-          return {
-            ...invItem,
-            currentStock: Math.max(0, invItem.currentStock - totalDeduct),
-            lastUpdated: toJalaliDate(),
-          };
-        }
-        return invItem;
-      })
-    );
   };
 
   const handleSubmitOrder = (payload: {
@@ -310,45 +328,50 @@ export default function App() {
     setOrders((prev) => [newOrder, ...prev]);
     setActiveOrderId(newOrder.id);
 
-    // Deduct BOM recipe ingredients from warehouse
-    deductInventoryForOrderItems(
-      newOrder.items.map((i) => ({
-        productId: i.productId,
-        quantity: i.quantity,
-      }))
-    );
-
-    // Update tenant monthly order usage
-    setTenants((prev) =>
-      prev.map((t) =>
-        t.id === activeTenant.id
-          ? { ...t, ordersCountThisMonth: t.ordersCountThisMonth + 1 }
-          : t
-      )
-    );
+    // Persist order & trigger BOM inventory deduction on backend API (POST /api/v1/tenant/orders)
+    void cafeGolApi
+      .createOrder(activeTenant.id, newOrder, activeStaffRole)
+      .then((res) => {
+        setInventory(res.inventory);
+        setLedger(res.ledger);
+        if (res.shift) setShift(res.shift);
+      })
+      .catch(() => {});
 
     return newOrder;
   };
 
-  // ===== OWNER PANEL HANDLERS =====
+  // ===== OWNER PANEL HANDLERS (CONNECTED TO /api/v1/tenant/*) =====
   const handleUpdateTenant = (updated: Partial<TenantCafe>) => {
     setTenants((prev) =>
       prev.map((t) => (t.id === activeTenant.id ? { ...t, ...updated } : t))
     );
+    void cafeGolApi
+      .updateTenantSettings(activeTenant.id, updated, activeStaffRole)
+      .catch(() => {});
   };
 
   const handleAddProduct = (prod: Product) => {
     setProducts((prev) => [prod, ...prev]);
+    void cafeGolApi
+      .createProduct(activeTenant.id, prod, activeStaffRole)
+      .catch(() => {});
   };
 
   const handleUpdateProduct = (productId: string, updated: Partial<Product>) => {
     setProducts((prev) =>
       prev.map((p) => (p.id === productId ? { ...p, ...updated } : p))
     );
+    void cafeGolApi
+      .updateProduct(activeTenant.id, productId, updated, activeStaffRole)
+      .catch(() => {});
   };
 
   const handleDeleteProduct = (productId: string) => {
     setProducts((prev) => prev.filter((p) => p.id !== productId));
+    void cafeGolApi
+      .deleteProduct(activeTenant.id, productId, activeStaffRole)
+      .catch(() => {});
   };
 
   const handleBulkPriceAdjustment = (percentage: number) => {
@@ -359,6 +382,10 @@ export default function App() {
         basePrice: Math.round((p.basePrice * factor) / 1000) * 1000,
       }))
     );
+    void cafeGolApi
+      .bulkAdjustPrice(activeTenant.id, percentage, activeStaffRole)
+      .then((res) => setProducts(res.products))
+      .catch(() => {});
   };
 
   const handleUpdateOrderStatus = (orderId: string, newStatus: OrderStatus) => {
@@ -381,12 +408,13 @@ export default function App() {
           : o
       )
     );
+    void cafeGolApi
+      .updateOrderStatus(activeTenant.id, orderId, newStatus, activeStaffRole)
+      .catch(() => {});
   };
 
   const handleApproveReceipt = (orderId: string, approved: boolean) => {
     const nowTime = toJalaliTime();
-    const targetOrder = orders.find((o) => o.id === orderId);
-
     setOrders((prev) =>
       prev.map((o) =>
         o.id === orderId
@@ -408,78 +436,43 @@ export default function App() {
           : o
       )
     );
-
-    if (approved && targetOrder) {
-      setLedger((prev) => [
-        {
-          id: `ldg_${Date.now()}`,
-          tenantId: activeTenant.id,
-          type: 'income',
-          category: 'فروش روزانه منو',
-          title: `تأیید کارت‌به‌کارت سفارش #${targetOrder.code} (${targetOrder.customerName})`,
-          amount: targetOrder.totalAmount,
-          jalaliDate: toJalaliDate(),
-          paymentMethod: 'کارت‌به‌کارت',
-          referenceCode: targetOrder.code,
-        },
-        ...prev,
-      ]);
-      setShift((prev) => ({
-        ...prev,
-        cardToCardSales: prev.cardToCardSales + targetOrder.totalAmount,
-      }));
-    }
+    void cafeGolApi
+      .verifyReceipt(activeTenant.id, orderId, approved, activeStaffRole)
+      .then((res) => {
+        setLedger(res.ledger);
+        if (res.shift) setShift(res.shift);
+      })
+      .catch(() => {});
   };
 
   const handleCreatePosOrder = (posOrder: Order) => {
     setOrders((prev) => [posOrder, ...prev]);
-    deductInventoryForOrderItems(
-      posOrder.items.map((i) => ({
-        productId: i.productId,
-        quantity: i.quantity,
-      }))
-    );
-
-    setLedger((prev) => [
-      {
-        id: `ldg_pos_${Date.now()}`,
-        tenantId: activeTenant.id,
-        type: 'income',
-        category: 'فروش صندوق POS',
-        title: `فروش حضوری POS #${posOrder.code}`,
-        amount: posOrder.totalAmount,
-        jalaliDate: toJalaliDate(),
-        paymentMethod: 'ترکیبی POS',
-        referenceCode: posOrder.code,
-      },
-      ...prev,
-    ]);
-
-    if (posOrder.splitPayment) {
-      setShift((prev) => ({
-        ...prev,
-        cashSales: prev.cashSales + posOrder.splitPayment!.cashAmount,
-        posReaderSales: prev.posReaderSales + posOrder.splitPayment!.posAmount,
-        cardToCardSales:
-          prev.cardToCardSales + posOrder.splitPayment!.cardToCardAmount,
-        expectedCash: prev.expectedCash + posOrder.splitPayment!.cashAmount,
-      }));
-    }
+    void cafeGolApi
+      .createOrder(activeTenant.id, posOrder, activeStaffRole)
+      .then((res) => {
+        setInventory(res.inventory);
+        setLedger(res.ledger);
+        if (res.shift) setShift(res.shift);
+      })
+      .catch(() => {});
   };
 
   const handleAddLedgerEntry = (entry: LedgerEntry) => {
     setLedger((prev) => [entry, ...prev]);
-    if (entry.type === 'expense' && entry.paymentMethod.includes('نقد')) {
-      setShift((prev) => ({
-        ...prev,
-        expensesOut: prev.expensesOut + entry.amount,
-        expectedCash: Math.max(0, prev.expectedCash - entry.amount),
-      }));
-    }
+    void cafeGolApi
+      .addLedgerEntry(activeTenant.id, entry, activeStaffRole)
+      .then((res) => {
+        if (res.shift) setShift(res.shift);
+      })
+      .catch(() => {});
   };
 
   const handleUpdateShift = (updated: Partial<CashRegisterShift>) => {
     setShift((prev) => ({ ...prev, ...updated }));
+    void cafeGolApi
+      .updateShift(activeTenant.id, updated, activeStaffRole)
+      .then((res) => setShift(res.shift))
+      .catch(() => {});
   };
 
   const handleUpdateInventoryItem = (itemId: string, deltaStock: number) => {
@@ -494,10 +487,18 @@ export default function App() {
           : item
       )
     );
+    void cafeGolApi
+      .adjustInventory(activeTenant.id, itemId, deltaStock, activeStaffRole)
+      .then((res) => setInventory(res.inventory))
+      .catch(() => {});
   };
 
   const handleAddStaff = (member: StaffMember) => {
     setStaff((prev) => [...prev, member]);
+    void cafeGolApi
+      .addStaff(activeTenant.id, member, activeStaffRole)
+      .then((res) => setStaff(res.staff))
+      .catch(() => {});
   };
 
   // ===== SUPER ADMIN HANDLERS =====
@@ -508,6 +509,10 @@ export default function App() {
     setTenants((prev) =>
       prev.map((t) => (t.id === tenantId ? { ...t, status } : t))
     );
+    void cafeGolApi
+      .updateTenantStatus(tenantId, status)
+      .then((res) => setTenants(res.tenants))
+      .catch(() => {});
   };
 
   const handleImpersonateTenant = (tenantId: string) => {
@@ -536,6 +541,10 @@ export default function App() {
           : t
       )
     );
+    void cafeGolApi
+      .replyTicket(ticketId, replyText)
+      .then((res) => setTickets(res.tickets))
+      .catch(() => {});
   };
 
   const handleRegisterNewCafe = (newCafe: TenantCafe) => {
@@ -564,7 +573,9 @@ export default function App() {
                 id: 'owner',
                 label: 'پنل مدیریت کافه و POS',
                 icon: 'storefront',
-                badge: orders.filter((o) => o.status === 'pending_payment').length,
+                badge: orders.filter(
+                  (o) => o.tenantId === activeTenant.id && o.status === 'pending_payment'
+                ).length,
               },
               {
                 id: 'superadmin',
@@ -608,7 +619,7 @@ export default function App() {
           {/* Right Controls: Active Tenant Switcher + PWA Install + Dark/Light Toggle */}
           <div className="flex items-center gap-2 mr-auto">
             <div className="hidden md:flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-full border border-outline-variant/30">
-              <span className="text-[10px] text-outline">کافه فعال:</span>
+              <span className="text-[10px] text-outline">کافه فعال (Tenant):</span>
               <select
                 value={activeTenantId}
                 onChange={(e) => setActiveTenantId(e.target.value)}
@@ -675,6 +686,10 @@ export default function App() {
           staff={staff}
           tables={tables}
           plans={plans}
+          activeStaffRole={activeStaffRole}
+          lastPolledAt={lastPolledAt}
+          onChangeStaffRole={setActiveStaffRole}
+          onPollOrders={handlePollOrders}
           onUpdateTenant={handleUpdateTenant}
           onAddProduct={handleAddProduct}
           onUpdateProduct={handleUpdateProduct}

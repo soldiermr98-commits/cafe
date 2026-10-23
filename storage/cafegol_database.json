@@ -1,0 +1,1344 @@
+{
+  "plans": [
+    {
+      "id": "plan_trial",
+      "name": "آزمایشی ۱۴ روزه (رایگان)",
+      "badge": "شروع سریع",
+      "monthlyPrice": 0,
+      "yearlyPrice": 0,
+      "maxProducts": 25,
+      "maxStaff": 2,
+      "maxOrdersPerMonth": 300,
+      "storageLimitMb": 200,
+      "features": [
+        "منوی دیجیتال QR کد نامحدود",
+        "دریافت سفارش و پرداخت کارت‌به‌کارت",
+        "ورود با ربات بله، تلگرام و ایمیل",
+        "تم روشن و تاریک گیاهی موگه"
+      ]
+    },
+    {
+      "id": "plan_basic",
+      "name": "پایه (گلبرگ)",
+      "monthlyPrice": 490000,
+      "yearlyPrice": 4900000,
+      "maxProducts": 80,
+      "maxStaff": 5,
+      "maxOrdersPerMonth": 2500,
+      "storageLimitMb": 1024,
+      "features": [
+        "تمامی امکانات پنل پایه و منوی PWA",
+        "برد زنده سفارشات با هشدار صوتی",
+        "صندوق فروشگاهی (POS) تبلت و موبایل",
+        "اعلان سفارش جدید در بله و تلگرام مالک",
+        "چاپ فیش حرارتی آشپزخانه و مشتری"
+      ]
+    },
+    {
+      "id": "plan_pro",
+      "name": "حرفه‌ای (گلخانه)",
+      "badge": "پرفروش‌ترین",
+      "monthlyPrice": 890000,
+      "yearlyPrice": 8900000,
+      "maxProducts": 500,
+      "maxStaff": 20,
+      "maxOrdersPerMonth": 20000,
+      "storageLimitMb": 5120,
+      "features": [
+        "حسابداری کامل، سود و زیان و بهای تمام‌شده",
+        "انبارداری و کسر خودکار مواد اولیه طبق رسپی",
+        "مدیریت شیفت صندوق و تسویه ترکیبی (Split POS)",
+        "خروجی اکسل و PDF با تقویم جلالی (شمسی)",
+        "پشتیبان‌گیری خودکار روزانه دیتابیس و دامنه اختصاصی"
+      ]
+    }
+  ],
+  "tenants": [
+    {
+      "id": "tenant_cafegol",
+      "slug": "cafe-gol",
+      "name": "کافه گل",
+      "tagline": "آرامش یک فنجان تازگی در سایه‌سار برگ‌های سبز",
+      "welcomeTitle": "به کافه گل خوش آمدید",
+      "welcomeSubtitle": "عطر خوش قهوه تازه در میان شکوفه‌های موگه",
+      "badgeText": "گلخانه و آرامش صبحگاهی",
+      "storyQuote": "«کافه گل، پناهگاهی سرسبز و آرام در دل شهر. جایی که هر قطره قهوه با اشتیاق عصاره‌گیری می‌شود و عطر شیرینی‌های تازه با شکوفه‌های بهاری در هم می‌آمیزد.»",
+      "address": "خیابان فرشته، بن‌بست نیلوفر، پلاک ۱۲، عمارت باغ گل",
+      "phone": "021-22005544",
+      "instagram": "@cafegol.tehran",
+      "wifiSsid": "CafeGol_Guest",
+      "wifiPass": "muguet2024",
+      "weekdayHours": "۸:۰۰ صبح الی ۲۳:۰۰ شب",
+      "weekendHours": "۸:۳۰ صبح الی ۲۴:۰۰ بامداد",
+      "isOpen": true,
+      "primaryColorPalette": "olive",
+      "cardNumber": "۶۰۳۷-۹۹۷۵-۹۹۱۲-۴۴۸۲",
+      "cardHolderName": "سهراب سپهری (کافه گل)",
+      "bankName": "بانک ملی ایران",
+      "shebaNumber": "IR840170000000109283746501",
+      "taxPercentage": 0,
+      "serviceFeePercentage": 0,
+      "loyaltyDiscountAmount": 20000,
+      "planId": "plan_pro",
+      "subscriptionEndsAt": "۱۴۰۵/۱۱/۱۵",
+      "status": "active",
+      "ownerName": "سهراب سپهری",
+      "ownerPhone": "09123456789",
+      "ownerEmail": "owner@cafegol.ir",
+      "baleChatId": "@cafegol_bale_admin",
+      "telegramChatId": "@cafegol_tg_admin",
+      "ordersCountThisMonth": 1420,
+      "storageUsedMb": 340
+    },
+    {
+      "id": "tenant_roastery",
+      "slug": "niloofar-roastery",
+      "name": "رستری نیلوفر آبی",
+      "tagline": "برشته‌کاری تخصصی دانه قهوه تک‌خاستگاه",
+      "welcomeTitle": "به رستری نیلوفر آبی خوش آمدید",
+      "welcomeSubtitle": "دم‌آوری تخصصی موج سوم در فضای مینیمال",
+      "badgeText": "برشته‌کاری تخصصی",
+      "storyQuote": "«انتخاب دقیق دانه‌های سبز از مزارع اتیوپی و کلمبیا با برشته‌کاری روزانه.»",
+      "address": "شهرک غرب، بلوار دادمان، پلاک ۴۸",
+      "phone": "021-88001122",
+      "instagram": "@niloofar.roastery",
+      "wifiSsid": "Niloofar_WiFi",
+      "wifiPass": "coffee2026",
+      "weekdayHours": "۷:۳۰ صبح الی ۲۲:۳۰ شب",
+      "weekendHours": "۹:۰۰ صبح الی ۲۳:۰۰ شب",
+      "isOpen": true,
+      "primaryColorPalette": "sage",
+      "cardNumber": "۶۲۱۹-۸۶۱۰-۳۴۵۲-۸۸۹۱",
+      "cardHolderName": "آرمان هدایت",
+      "bankName": "بانک سامان",
+      "shebaNumber": "IR520560000000998877665501",
+      "taxPercentage": 9,
+      "serviceFeePercentage": 0,
+      "loyaltyDiscountAmount": 15000,
+      "planId": "plan_basic",
+      "subscriptionEndsAt": "۱۴۰۵/۰۸/۰۵",
+      "status": "trial",
+      "ownerName": "آرمان هدایت",
+      "ownerPhone": "09121112233",
+      "ownerEmail": "arman@niloofar.ir",
+      "ordersCountThisMonth": 215,
+      "storageUsedMb": 95
+    },
+    {
+      "id": "tenant_bagh",
+      "slug": "avano-garden",
+      "name": "کافه باغ آوانو",
+      "tagline": "صبحانه ارگانیک و نان‌های خمیرترش دست‌ساز",
+      "welcomeTitle": "به کافه باغ آوانو خوش آمدید",
+      "welcomeSubtitle": "طعم نان خمیرترش داغ در هوای آزاد شیراز",
+      "badgeText": "نانوایی و کافه باغ",
+      "storyQuote": "«خمیرترش ۳۶ ساعته با آرد کامل محلی و مواد اولیه ارگانیک.»",
+      "address": "شیراز، قصرالدشت، کوچه باغ بهشت، پلاک ۷",
+      "phone": "071-36204455",
+      "instagram": "@avano.shiraz",
+      "wifiSsid": "Avano_Garden",
+      "wifiPass": "shiraz1405",
+      "weekdayHours": "۸:۰۰ صبح الی ۲۳:۳۰ شب",
+      "weekendHours": "۸:۰۰ صبح الی ۲۴:۰۰ بامداد",
+      "isOpen": false,
+      "primaryColorPalette": "forest",
+      "cardNumber": "۵۰۲۲-۲۹۱۰-۷۷۶۵-۱۲۳۴",
+      "cardHolderName": "سارا فرهادی",
+      "bankName": "بانک پاسارگاد",
+      "shebaNumber": "IR110570000000223344556601",
+      "taxPercentage": 0,
+      "serviceFeePercentage": 5,
+      "loyaltyDiscountAmount": 0,
+      "planId": "plan_basic",
+      "subscriptionEndsAt": "۱۴۰۵/۰۷/۲۸",
+      "status": "grace_period",
+      "ownerName": "سارا فرهادی",
+      "ownerPhone": "09173334455",
+      "ownerEmail": "sara@avano.ir",
+      "ordersCountThisMonth": 890,
+      "storageUsedMb": 410
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_espresso",
+      "tenantId": "tenant_cafegol",
+      "name": "اسپرسو بار",
+      "icon": "spa",
+      "sortOrder": 1
+    },
+    {
+      "id": "cat_cold",
+      "tenantId": "tenant_cafegol",
+      "name": "نوشیدنی‌های خنک",
+      "icon": "ac_unit",
+      "sortOrder": 2
+    },
+    {
+      "id": "cat_brew",
+      "tenantId": "tenant_cafegol",
+      "name": "دم‌آوری دستی",
+      "icon": "coffee_maker",
+      "sortOrder": 3
+    },
+    {
+      "id": "cat_pastry",
+      "tenantId": "tenant_cafegol",
+      "name": "دسر و شیرینی",
+      "icon": "bakery_dining",
+      "sortOrder": 4
+    },
+    {
+      "id": "cat_tea",
+      "tenantId": "tenant_cafegol",
+      "name": "چای و دمنوش",
+      "icon": "emoji_food_beverage",
+      "sortOrder": 5
+    },
+    {
+      "id": "cat_warm",
+      "tenantId": "tenant_cafegol",
+      "name": "ساندویچ و بار گرم",
+      "icon": "lunch_dining",
+      "sortOrder": 6
+    },
+    {
+      "id": "cat_all",
+      "tenantId": "tenant_roastery",
+      "name": "همه",
+      "icon": "apps",
+      "sortOrder": 1
+    },
+    {
+      "id": "cat_brew",
+      "tenantId": "tenant_roastery",
+      "name": "دم‌آوری موج سوم",
+      "icon": "coffee_maker",
+      "sortOrder": 2
+    },
+    {
+      "id": "cat_all",
+      "tenantId": "tenant_bagh",
+      "name": "همه",
+      "icon": "apps",
+      "sortOrder": 1
+    },
+    {
+      "id": "cat_bakery",
+      "tenantId": "tenant_bagh",
+      "name": "نان خمیرترش و صبحانه",
+      "icon": "bakery_dining",
+      "sortOrder": 2
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_vanilla_latte",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_espresso",
+      "name": "لاته شکوفه وانیل و پسته",
+      "subtitle": "دم‌آوری تخصصی",
+      "description": "ترکیب اسپرسو تک‌خاستگاه کلمبیا با اسیدیته ملایم، شیر ابریشمی بخارداده‌شده با عصاره طبیعی وانیل ماداگاسکار و پودر پسته تازه قزوین به همراه غنچه‌های خوراکی.",
+      "basePrice": 98000,
+      "costPrice": 34000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBxVtCeDH9-7sDBzf2p3QIBiw4BeDXYhSKAfO7tTXHZFvkY8h_bpqm1zCZ3sKRwsEBczJ70_YhAlqJvkyzTrwOz5k4S0-NMRg5I5v7Y7ewA42SgzlfF3Mn3BZttwXeTPsbBlEPpY1q_qPYN5mnIUQM3YN_SjmFh4fXUdTSfc2DoYRPWxvN3v5bVZ1NpVpLl898QKc1yWemVwNk19X_XbIP1vNCjO6FMkO-W9TCpkyrgde4hwTRilmzMFg",
+      "badge": "پیشنهاد باریستا",
+      "badgeType": "primary",
+      "servingNote": "سرو با گلبرگ بهارنارنج تازه",
+      "isFeatured": true,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 42,
+      "sizes": [
+        {
+          "id": "size_sm",
+          "name": "کوچک (Single Shot)",
+          "subtitle": "۲۰۰ میلی‌لیتر فنجان سرامیکی",
+          "priceDelta": 0
+        },
+        {
+          "id": "size_md",
+          "name": "متوسط (Double Shot)",
+          "subtitle": "۳۰۰ میلی‌لیتر - تعادل طعمی عالی",
+          "priceDelta": 15000,
+          "isDefault": true,
+          "recommended": true
+        },
+        {
+          "id": "size_lg",
+          "name": "بزرگ (Triple Shot)",
+          "subtitle": "۴۰۰ میلی‌لیتر لیوان دوجداره",
+          "priceDelta": 28000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_almond_milk",
+          "name": "شیر بادام دست‌ساز",
+          "subtitle": "تهیه شده روزانه با بادام تازه مامایی",
+          "price": 25000
+        },
+        {
+          "id": "addon_extra_shot",
+          "name": "شات اضافه اسپرسو",
+          "subtitle": "عصاره‌گیری تخصصی با دستگاه سینسو",
+          "price": 20000
+        },
+        {
+          "id": "addon_caramel_syrup",
+          "name": "سیروپ کارامل نمکی",
+          "subtitle": "با نمک آبی گرمسار و کره دست‌ساز",
+          "price": 15000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_beans",
+          "amount": 18
+        },
+        {
+          "inventoryItemId": "inv_milk",
+          "amount": 220
+        },
+        {
+          "inventoryItemId": "inv_pistachio",
+          "amount": 12
+        }
+      ]
+    },
+    {
+      "id": "prod_flat_white",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_espresso",
+      "name": "فلت وایت شکوفه",
+      "subtitle": "اسپرسو بار تخصصی",
+      "description": "ترکیب دوبل اسپرسو، شیر مخملی کم‌فوم و عصاره ملایم بهارنارنج تازه شیراز.",
+      "basePrice": 95000,
+      "costPrice": 31000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCir5DmddK4xISxHlZSNer5Sh1iVs-kx3gcRYvbteKSIT2BiOvunyTvFImYquhmr9plX7bhTxE2VwIbJYADwsVMY4k_q8_XBnYqSTwcQPmIt4aNWiwoNCubrt0rEqQxneFz7AoFv-MEoIWHM7EE8GWYTZPbz3Hc72CKBVMVNH-tekH20xOIc5QXiXViN8dg01ZYxvi_dtGEAcA9Q59kZNQarG5ccbY3aAdhgvG2K6Gy6xy91bWutjZ1rg",
+      "badge": "پیشنهاد ویژه",
+      "badgeType": "primary",
+      "servingNote": "فنجان سرامیکی دست‌ساز",
+      "isFeatured": false,
+      "isBestseller": false,
+      "isAvailable": true,
+      "stockCount": 38,
+      "sizes": [
+        {
+          "id": "size_sm",
+          "name": "کوچک (Single Shot)",
+          "subtitle": "۲۰۰ میلی‌لیتر فنجان سرامیکی",
+          "priceDelta": 0
+        },
+        {
+          "id": "size_md",
+          "name": "متوسط (Double Shot)",
+          "subtitle": "۳۰۰ میلی‌لیتر - تعادل طعمی عالی",
+          "priceDelta": 15000,
+          "isDefault": true,
+          "recommended": true
+        },
+        {
+          "id": "size_lg",
+          "name": "بزرگ (Triple Shot)",
+          "subtitle": "۴۰۰ میلی‌لیتر لیوان دوجداره",
+          "priceDelta": 28000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_almond_milk",
+          "name": "شیر بادام دست‌ساز",
+          "subtitle": "تهیه شده روزانه با بادام تازه مامایی",
+          "price": 25000
+        },
+        {
+          "id": "addon_extra_shot",
+          "name": "شات اضافه اسپرسو",
+          "subtitle": "عصاره‌گیری تخصصی با دستگاه سینسو",
+          "price": 20000
+        },
+        {
+          "id": "addon_caramel_syrup",
+          "name": "سیروپ کارامل نمکی",
+          "subtitle": "با نمک آبی گرمسار و کره دست‌ساز",
+          "price": 15000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_beans",
+          "amount": 18
+        },
+        {
+          "inventoryItemId": "inv_milk",
+          "amount": 160
+        }
+      ]
+    },
+    {
+      "id": "prod_kenya_espresso",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_espresso",
+      "name": "اسپرسو دوبل کنیا",
+      "subtitle": "تک‌خاستگاه عربیکا",
+      "description": "اسیدیته مرکباتی درخشان، ته مزه شکوفه یاس و شاه‌توت با کرمای مخملی طلایی.",
+      "basePrice": 85000,
+      "costPrice": 26000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA3B7LBDI-6C_2c9fY8oGpMMuiaa42TxB4DD_QwfIpk811xdnnEWoe7EM3qbXPaH9KmQxxW1Q40WL7VJ1ibrjjd9Fg09YNrBWut3AC7AVPdhW9mbuT74q8UT1jszGFbzY7htZn7u_paGbRCOw-kpKIH8KAwCnwc4u-MrqyZX78jlpilV92Td8Nr1KjbyfNnnOitkzItBrq-MdGl8WUIrho2Jn2nbb_58QGKqALuRg_s063lnduaAkgs6w",
+      "badge": "پرفروش",
+      "badgeType": "primary",
+      "isFeatured": false,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 65,
+      "sizes": [
+        {
+          "id": "size_sm",
+          "name": "کوچک (Single Shot)",
+          "subtitle": "۲۰۰ میلی‌لیتر فنجان سرامیکی",
+          "priceDelta": 0
+        },
+        {
+          "id": "size_md",
+          "name": "متوسط (Double Shot)",
+          "subtitle": "۳۰۰ میلی‌لیتر - تعادل طعمی عالی",
+          "priceDelta": 15000,
+          "isDefault": true,
+          "recommended": true
+        },
+        {
+          "id": "size_lg",
+          "name": "بزرگ (Triple Shot)",
+          "subtitle": "۴۰۰ میلی‌لیتر لیوان دوجداره",
+          "priceDelta": 28000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_almond_milk",
+          "name": "شیر بادام دست‌ساز",
+          "subtitle": "تهیه شده روزانه با بادام تازه مامایی",
+          "price": 25000
+        },
+        {
+          "id": "addon_extra_shot",
+          "name": "شات اضافه اسپرسو",
+          "subtitle": "عصاره‌گیری تخصصی با دستگاه سینسو",
+          "price": 20000
+        },
+        {
+          "id": "addon_caramel_syrup",
+          "name": "سیروپ کارامل نمکی",
+          "subtitle": "با نمک آبی گرمسار و کره دست‌ساز",
+          "price": 15000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_beans",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "prod_cold_brew",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_cold",
+      "name": "کولد برو پرتقال و دارچین",
+      "subtitle": "دم‌آوری سرد ۱۸ ساعته",
+      "description": "دم‌آوری سرد ۱۸ ساعته با عطر پرتقال خونی خشک و چوب دارچین سیلان بر روی یخ شفاف.",
+      "basePrice": 105000,
+      "costPrice": 32000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqyHSgD5UWO4TEXZhwFqt5OQmvrTcj2sBEg2DkrgD-xeouRhCqKrIAyKY0VeqMDMw_fQiEv-_ahzbYYdwCYK43XSYaIXrAQK281BUkVJV0wgr0P9F6lv5L7GxHgEBXdqRjeRDlxvaaY5rzC0IcYkogR655TiakY4K7IBFgJck0yK6CKsN3SyDSph8SskMp0AdlB6pSe-vwAITNm54Ya4Ayicwg-ERAkDrG_yVXJTUvTIgNqAusCOusEQ",
+      "badge": "جدید",
+      "badgeType": "secondary",
+      "isFeatured": false,
+      "isBestseller": false,
+      "isAvailable": true,
+      "stockCount": 24,
+      "sizes": [
+        {
+          "id": "size_sm",
+          "name": "کوچک (Single Shot)",
+          "subtitle": "۲۰۰ میلی‌لیتر فنجان سرامیکی",
+          "priceDelta": 0
+        },
+        {
+          "id": "size_md",
+          "name": "متوسط (Double Shot)",
+          "subtitle": "۳۰۰ میلی‌لیتر - تعادل طعمی عالی",
+          "priceDelta": 15000,
+          "isDefault": true,
+          "recommended": true
+        },
+        {
+          "id": "size_lg",
+          "name": "بزرگ (Triple Shot)",
+          "subtitle": "۴۰۰ میلی‌لیتر لیوان دوجداره",
+          "priceDelta": 28000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_almond_milk",
+          "name": "شیر بادام دست‌ساز",
+          "subtitle": "تهیه شده روزانه با بادام تازه مامایی",
+          "price": 25000
+        },
+        {
+          "id": "addon_extra_shot",
+          "name": "شات اضافه اسپرسو",
+          "subtitle": "عصاره‌گیری تخصصی با دستگاه سینسو",
+          "price": 20000
+        },
+        {
+          "id": "addon_caramel_syrup",
+          "name": "سیروپ کارامل نمکی",
+          "subtitle": "با نمک آبی گرمسار و کره دست‌ساز",
+          "price": 15000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_beans",
+          "amount": 22
+        }
+      ]
+    },
+    {
+      "id": "prod_iced_matcha",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_cold",
+      "name": "آیس ماچا لاته پسته",
+      "subtitle": "ماچای تشریفاتی اودجی",
+      "description": "ماچای تشریفاتی اودجی ژاپن همراه با کرم پسته تازه رفسنجان و شیر سرد.",
+      "basePrice": 128000,
+      "costPrice": 46000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBBE7WG_QP2KL4uY3bSbiVxOWU183NXvw5oF6GQSngb3-J7h47wxcCHZ3V0xTPcqw-fMjhlqWARh_DkuEbP_pUjL9vu8HtpzYzQwnqZ9fEnB8154JG18RKOIu8y3SwI1kkZyUyCAerht5S2dTAU-oiTM9TAy1CNACEl4uNZfMi_X3jh5BYJt0toSoVsRx1ObsPaua7u3zcBJEi-oOgxPtQKochleGzU1rgxpV39Im1ZmXixjqXKg-AKow",
+      "badge": "جدید",
+      "badgeType": "tertiary",
+      "isFeatured": false,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 19,
+      "sizes": [
+        {
+          "id": "size_sm",
+          "name": "کوچک (Single Shot)",
+          "subtitle": "۲۰۰ میلی‌لیتر فنجان سرامیکی",
+          "priceDelta": 0
+        },
+        {
+          "id": "size_md",
+          "name": "متوسط (Double Shot)",
+          "subtitle": "۳۰۰ میلی‌لیتر - تعادل طعمی عالی",
+          "priceDelta": 15000,
+          "isDefault": true,
+          "recommended": true
+        },
+        {
+          "id": "size_lg",
+          "name": "بزرگ (Triple Shot)",
+          "subtitle": "۴۰۰ میلی‌لیتر لیوان دوجداره",
+          "priceDelta": 28000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_almond_milk",
+          "name": "شیر بادام دست‌ساز",
+          "subtitle": "تهیه شده روزانه با بادام تازه مامایی",
+          "price": 25000
+        },
+        {
+          "id": "addon_extra_shot",
+          "name": "شات اضافه اسپرسو",
+          "subtitle": "عصاره‌گیری تخصصی با دستگاه سینسو",
+          "price": 20000
+        },
+        {
+          "id": "addon_caramel_syrup",
+          "name": "سیروپ کارامل نمکی",
+          "subtitle": "با نمک آبی گرمسار و کره دست‌ساز",
+          "price": 15000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_matcha",
+          "amount": 5
+        },
+        {
+          "inventoryItemId": "inv_milk",
+          "amount": 200
+        },
+        {
+          "inventoryItemId": "inv_pistachio",
+          "amount": 18
+        }
+      ]
+    },
+    {
+      "id": "prod_lemon_cake",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_pastry",
+      "name": "کیک لیمو و رزماری",
+      "subtitle": "قنادی روزانه کافه گل",
+      "description": "پخت روز با آرد بادام، شربت رزماری تازه گلخانه و برش لیموترش سنگی.",
+      "basePrice": 115000,
+      "costPrice": 38000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAG3qawBMVO44rhVR2XNvH12-DzdvwtD2GRQLDioMB4ypyoHD12f0tckkj0ay_Zr64Hi6nuc8jTYcX7s8htmyUody5H3oZmsO7QnzLWVqWQzZ1laN_g9A8DkrmzCKOuzKmM-fyr-UkYW7HCZfB2icynqMgGdOSHyY1nHzF2_Yup_9LB9Z5D2IGfqhIjPx_J--UIaILYY7OFEL72328wtxzzec4VQVAI-DQJdjpr-dBgWD8u4UHntI2uVA",
+      "badge": "گیاهی",
+      "badgeType": "herb",
+      "isFeatured": false,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 14,
+      "sizes": [
+        {
+          "id": "size_slice",
+          "name": "اسلایس استاندارد",
+          "subtitle": "۱۴۰ گرم پخت روز",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_icecream",
+          "name": "اسکوپ بستنی وانیل",
+          "subtitle": "بستنی دست‌ساز کافه",
+          "price": 22000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_flour_almond",
+          "amount": 65
+        }
+      ]
+    },
+    {
+      "id": "prod_pear_tart",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_pastry",
+      "name": "تارت گلابی و بادام",
+      "subtitle": "شیرینی دست‌ساز فرانسوی",
+      "description": "تارت دست‌ساز با کرم پاتیستیر وانیلی، پوره گلابی کاراملی و خلال بادام تست شده.",
+      "basePrice": 120000,
+      "costPrice": 42000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBxwGFwlO6VXWjpOaedFBwf8kPfWusShvaJeL6isJdml_qrE9-VXR1lEVr11FB0C7eVPcK0QTeN9z72s12MrOGfzc4g4zck4xFadzFu3PNv232dJrww2VWQReiVLFx_1O-v-yS5slBzGY4edOy_GGM7LddadahkLNDwKFPDxY161wYqGXYSzf91rHxowayaKxVsK_4rp39Il96EHUBG1rtalFDF8_MR3H3_8qxketU--CkXPNI7mit7qQ",
+      "badge": "گیاهی",
+      "badgeType": "herb",
+      "isFeatured": false,
+      "isBestseller": false,
+      "isAvailable": true,
+      "stockCount": 11,
+      "sizes": [
+        {
+          "id": "size_tart",
+          "name": "تارت تک‌نفره کامل",
+          "subtitle": "۱۵۰ گرم پخت صبحگاهی",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_cream",
+          "name": "خامه ترش فرانسوی",
+          "subtitle": "سرو در کنار تارت",
+          "price": 18000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_flour_almond",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "prod_herbal_tea",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_tea",
+      "name": "دمنوش آرامش",
+      "subtitle": "گل‌های ارگانیک گلخانه",
+      "description": "دمنوش بابونه، به‌لیمو و اسطوخودوس همراه با عسل طبیعی موم‌دار سبلان.",
+      "basePrice": 80000,
+      "costPrice": 21000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDf_ukVgryIA9QxsndlvhImRJbH0l7VDX6aYEG_jbC1MSncIbsUB3KynxQdvdyj8-LeDDpD8qUXFiNXmi7xEITxjyndh4LIBtFb4_zVGmIWFppk0_PdIUsQx3Mo4W-XB1koE-uE_gHGjVkuQOYXvaCUy-_1eNjUWSzqnGAjJf3dq1zDxPcE4XV-dkvMktMeXCN2IDVQqtBQg6I6NIGTJHHZY901u2gSU6YUCfj_eycyM-S_xEbMZJybww",
+      "isFeatured": false,
+      "isBestseller": false,
+      "isAvailable": true,
+      "stockCount": 50,
+      "sizes": [
+        {
+          "id": "size_teapot_1",
+          "name": "قوری شیشه‌ای تک‌نفره",
+          "subtitle": "۳۵۰ میلی‌لیتر با وارمر",
+          "priceDelta": 0,
+          "isDefault": true
+        },
+        {
+          "id": "size_teapot_2",
+          "name": "قوری دونفره گلخانه",
+          "subtitle": "۶۰۰ میلی‌لیتر با دو فنجان",
+          "priceDelta": 35000
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_honey",
+          "name": "عسل موم‌دار اضافه",
+          "subtitle": "عسل طبیعی کوهستان",
+          "price": 20000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_herbs",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "prod_avocado_sandwich",
+      "tenantId": "tenant_cafegol",
+      "categoryId": "cat_warm",
+      "name": "ساندویچ آووکادو و گردو",
+      "subtitle": "نان چاباتای خمیرترش",
+      "description": "نان چاباتا پخت روز، پستوی ریحان تازه گلخانه، آووکادو و پنیر خامه‌ای گردویی.",
+      "basePrice": 145000,
+      "costPrice": 54000,
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDrKWhzcxhwAE8A4-uF5rnHkCV1ozva6-DOYaZx3JEj9MWONKi-daEp2RtKCXBW02-ykIJUUqt3ot7n8npo7Lmkz1IDa_7J_DpNibxQC5L6PrFchOQhz9WIbuXv1lkeBMgRie2KKJEYxUTn_ey4lZHPNtvorWGTaBach93q_kYjS1GWiaJCErhmUoq6F46-7j1Iuz6xgfc5pBE8aCphXGXrhyZItHX93gWy0DeUmQ5CuwV28kfH87bt_Q",
+      "badge": "پرفروش",
+      "badgeType": "tertiary",
+      "isFeatured": false,
+      "isBestseller": false,
+      "isAvailable": true,
+      "stockCount": 16,
+      "sizes": [
+        {
+          "id": "size_full_ciabatta",
+          "name": "ساندویچ کامل چاباتا",
+          "subtitle": "همراه با سالاد میکروگرین",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [
+        {
+          "id": "addon_poached_egg",
+          "name": "تخم‌مرغ پوچد ارگانیک",
+          "subtitle": "پخت ملایم",
+          "price": 24000
+        }
+      ],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_flour_almond",
+          "amount": 90
+        }
+      ]
+    },
+    {
+      "id": "prod_roast_v60",
+      "tenantId": "tenant_roastery",
+      "categoryId": "cat_brew",
+      "name": "دم‌آوری تخصصی V60 اتیوپی یرگاشف",
+      "subtitle": "رست مدیوم-لایت موج سوم",
+      "description": "نت‌های یاسمن، ترنج و هلو سفید با دم‌آوری دستی V60.",
+      "basePrice": 118000,
+      "costPrice": 36000,
+      "image": "/assets/aistudio/Image_6.jpg",
+      "badge": "تک‌خاستگاه",
+      "isFeatured": true,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 40,
+      "sizes": [
+        {
+          "id": "sz_v60_std",
+          "name": "کاراف ۲۵۰ میلی‌لیتر",
+          "subtitle": "سرو با لیوان دوجداره",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_roast_ethiopia",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "prod_roast_chemex",
+      "tenantId": "tenant_roastery",
+      "categoryId": "cat_brew",
+      "name": "کمکس دو نفره کلمبیا اوئیلا",
+      "subtitle": "عصاره‌گیری شفاف",
+      "description": "اسیدیته متوازن سیب سبز و کارامل با فیلتر کاغذی ضخیم کمکس.",
+      "basePrice": 175000,
+      "costPrice": 54000,
+      "image": "/assets/aistudio/Image_5.jpg",
+      "isFeatured": false,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 25,
+      "sizes": [
+        {
+          "id": "sz_chx_2",
+          "name": "کمکس ۴۰۰ میلی‌لیتر",
+          "subtitle": "مناسب ۲ نفر",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [],
+      "recipe": [
+        {
+          "inventoryItemId": "inv_roast_ethiopia",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "prod_bagh_sourdough",
+      "tenantId": "tenant_bagh",
+      "categoryId": "cat_bakery",
+      "name": "بشقاب خمیرترش چاودار و کره محلی شیراز",
+      "subtitle": "تخمیر طبیعی ۳۶ ساعته",
+      "description": "نان خمیرترش داغ تنوری همراه با کره محلی، عسل بهارنارنج و گردو.",
+      "basePrice": 142000,
+      "costPrice": 45000,
+      "image": "/assets/aistudio/Image_9.jpg",
+      "badge": "پخت روز شیراز",
+      "isFeatured": true,
+      "isBestseller": true,
+      "isAvailable": true,
+      "stockCount": 30,
+      "sizes": [
+        {
+          "id": "sz_bagh_1",
+          "name": "پرس کامل صبحانه باغ",
+          "subtitle": "همراه چای بهارنارنج",
+          "priceDelta": 0,
+          "isDefault": true
+        }
+      ],
+      "addons": [],
+      "recipe": []
+    }
+  ],
+  "tables": [
+    {
+      "id": "tbl_1",
+      "tenantId": "tenant_cafegol",
+      "number": "۱",
+      "name": "میز شماره ۱ - ورودی گلخانه",
+      "zone": "گلخانه اصلی",
+      "capacity": 2
+    },
+    {
+      "id": "tbl_2",
+      "tenantId": "tenant_cafegol",
+      "number": "۲",
+      "name": "میز شماره ۲ - زیر درخت فیکوس",
+      "zone": "گلخانه اصلی",
+      "capacity": 4
+    },
+    {
+      "id": "tbl_3",
+      "tenantId": "tenant_cafegol",
+      "number": "۳",
+      "name": "میز شماره ۳ - تراس شرقی",
+      "zone": "حیاط باغ",
+      "capacity": 2
+    },
+    {
+      "id": "tbl_4",
+      "tenantId": "tenant_cafegol",
+      "number": "۴",
+      "name": "میز شماره ۴ - کنار پنجره حیاط",
+      "zone": "گلخانه اصلی",
+      "capacity": 4
+    },
+    {
+      "id": "tbl_5",
+      "tenantId": "tenant_cafegol",
+      "number": "۵",
+      "name": "میز شماره ۵ - آلاچیق موگه",
+      "zone": "حیاط باغ",
+      "capacity": 6
+    },
+    {
+      "id": "tbl_6",
+      "tenantId": "tenant_cafegol",
+      "number": "۶",
+      "name": "میز شماره ۶ - میز مطالعه صمیمی",
+      "zone": "طبقه بالا",
+      "capacity": 2
+    },
+    {
+      "id": "tbl_r1",
+      "tenantId": "tenant_roastery",
+      "number": "۱",
+      "name": "میز بار دمی ۱",
+      "zone": "اسلو بار",
+      "capacity": 2
+    },
+    {
+      "id": "tbl_b1",
+      "tenantId": "tenant_bagh",
+      "number": "۱",
+      "name": "تخت چوبی زیر نارنج",
+      "zone": "حیاط شیراز",
+      "capacity": 4
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord_gl894",
+      "code": "GL-۸۹۴",
+      "tenantId": "tenant_cafegol",
+      "customerName": "مهمان میز ۴ (نیلوفر راد)",
+      "customerPhone": "09124455667",
+      "dineType": "dine_in",
+      "tableNumber": "۴",
+      "items": [
+        {
+          "productId": "prod_vanilla_latte",
+          "name": "لاته شکوفه وانیل",
+          "details": "شیر بادام ارگانیک، اسطوخودوس",
+          "quantity": 1,
+          "unitPrice": 110000,
+          "icon": "coffee"
+        },
+        {
+          "productId": "prod_pear_tart",
+          "name": "تارت گلابی و بادام",
+          "details": "تازه پخت صبحگاهی با هل سبز",
+          "quantity": 1,
+          "unitPrice": 115000,
+          "icon": "bakery_dining"
+        },
+        {
+          "productId": "prod_cold_brew",
+          "name": "کولد برو پرتقال و عسل",
+          "details": "دم‌آوری سرد ۱۸ ساعته با برش نارنج",
+          "quantity": 1,
+          "unitPrice": 93000,
+          "icon": "glass_cup"
+        }
+      ],
+      "subtotal": 338000,
+      "discountAmount": 20000,
+      "taxAmount": 0,
+      "totalAmount": 318000,
+      "paymentMethod": "card_to_card",
+      "cardLastFour": "۷۸۴۱",
+      "receiptVerified": true,
+      "status": "preparing",
+      "createdAt": "۱۰:۴۲",
+      "estimatedMinutes": 13,
+      "notes": "لطفاً لاته با فوم شیر بیشتر سرو شود.",
+      "history": [
+        {
+          "status": "payment_verified",
+          "time": "۱۰:۴۲",
+          "note": "سفارش توسط صندوق مرکزی دریافت و تأیید شد."
+        },
+        {
+          "status": "preparing",
+          "time": "۱۰:۴۵",
+          "note": "باریستا مشغول عصاره‌گیری و دم‌آوری برگ‌های تازه است."
+        }
+      ]
+    },
+    {
+      "id": "ord_gl895",
+      "code": "GL-۸۹۵",
+      "tenantId": "tenant_cafegol",
+      "customerName": "کسری نادری",
+      "customerPhone": "09128899001",
+      "dineType": "dine_in",
+      "tableNumber": "۲",
+      "items": [
+        {
+          "productId": "prod_kenya_espresso",
+          "name": "اسپرسو دوبل کنیا",
+          "details": "سایز متوسط، شیرینی استاندارد",
+          "quantity": 2,
+          "unitPrice": 85000,
+          "icon": "coffee"
+        },
+        {
+          "productId": "prod_lemon_cake",
+          "name": "کیک لیمو و رزماری",
+          "details": "اسلایس استاندارد روز",
+          "quantity": 1,
+          "unitPrice": 115000,
+          "icon": "bakery_dining"
+        }
+      ],
+      "subtotal": 285000,
+      "discountAmount": 0,
+      "taxAmount": 0,
+      "totalAmount": 285000,
+      "paymentMethod": "card_to_card",
+      "cardLastFour": "۳۳۹۲",
+      "receiptImageUrl": "receipt_demo_895.jpg",
+      "receiptVerified": false,
+      "status": "pending_payment",
+      "createdAt": "۱۰:۵۱",
+      "estimatedMinutes": 12,
+      "notes": "کیک لیمو کمی گرم شود.",
+      "history": [
+        {
+          "status": "pending_payment",
+          "time": "۱۰:۵۱",
+          "note": "رسید کارت‌به‌کارت بارگذاری شد و منتظر تأیید صندوق است."
+        }
+      ]
+    },
+    {
+      "id": "ord_gl893",
+      "code": "GL-۸۹۳",
+      "tenantId": "tenant_cafegol",
+      "customerName": "پریسا جاوید",
+      "customerPhone": "09352211443",
+      "dineType": "takeaway",
+      "items": [
+        {
+          "productId": "prod_iced_matcha",
+          "name": "آیس ماچا لاته پسته",
+          "details": "لیوان بیرون‌بر گیاهی",
+          "quantity": 2,
+          "unitPrice": 128000,
+          "icon": "local_cafe"
+        }
+      ],
+      "subtotal": 256000,
+      "discountAmount": 20000,
+      "taxAmount": 0,
+      "totalAmount": 236000,
+      "paymentMethod": "pos_split",
+      "receiptVerified": true,
+      "status": "ready",
+      "createdAt": "۱۰:۲۵",
+      "estimatedMinutes": 10,
+      "history": [
+        {
+          "status": "payment_verified",
+          "time": "۱۰:۲۵",
+          "note": "پرداخت در صندوق انجام شد."
+        },
+        {
+          "status": "preparing",
+          "time": "۱۰:۲۸",
+          "note": "در حال آماده‌سازی در بار سرد."
+        },
+        {
+          "status": "ready",
+          "time": "۱۰:۳۴",
+          "note": "آماده تحویل در کانتر گلخانه."
+        }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "id": "inv_beans",
+      "tenantId": "tenant_cafegol",
+      "name": "دانه قهوه تخصصی کلمبیا و کنیا",
+      "unit": "گرم",
+      "currentStock": 4200,
+      "minThreshold": 1500,
+      "costPerUnit": 1150,
+      "lastUpdated": "۱۴۰۵/۰۷/۳۰"
+    },
+    {
+      "id": "inv_milk",
+      "tenantId": "tenant_cafegol",
+      "name": "شیر تازه پرچرب و شیر بادام",
+      "unit": "میلی‌لیتر",
+      "currentStock": 8500,
+      "minThreshold": 3000,
+      "costPerUnit": 65,
+      "lastUpdated": "۱۴۰۵/۰۷/۳۰"
+    },
+    {
+      "id": "inv_pistachio",
+      "tenantId": "tenant_cafegol",
+      "name": "مغز پسته سبز دوپوست رفسنجان",
+      "unit": "گرم",
+      "currentStock": 380,
+      "minThreshold": 500,
+      "costPerUnit": 1450,
+      "lastUpdated": "۱۴۰۵/۰۷/۲۹"
+    },
+    {
+      "id": "inv_matcha",
+      "tenantId": "tenant_cafegol",
+      "name": "پودر ماچای تشریفاتی اودجی ژاپن",
+      "unit": "گرم",
+      "currentStock": 190,
+      "minThreshold": 250,
+      "costPerUnit": 6800,
+      "lastUpdated": "۱۴۰۵/۰۷/۲۸"
+    },
+    {
+      "id": "inv_flour_almond",
+      "tenantId": "tenant_cafegol",
+      "name": "آرد بادام و خمیر تارت فرانسوی",
+      "unit": "گرم",
+      "currentStock": 3400,
+      "minThreshold": 1000,
+      "costPerUnit": 520,
+      "lastUpdated": "۱۴۰۵/۰۷/۳۰"
+    },
+    {
+      "id": "inv_herbs",
+      "tenantId": "tenant_cafegol",
+      "name": "ترکیب گل‌های بابونه، به‌لیمو و بهارنارنج",
+      "unit": "گرم",
+      "currentStock": 1250,
+      "minThreshold": 400,
+      "costPerUnit": 890,
+      "lastUpdated": "۱۴۰۵/۰۷/۲۷"
+    },
+    {
+      "id": "inv_roast_ethiopia",
+      "tenantId": "tenant_roastery",
+      "name": "دانه سبز برشته‌شده اتیوپی یرگاشف",
+      "unit": "گرم",
+      "currentStock": 6000,
+      "minThreshold": 1200,
+      "costPerUnit": 1650,
+      "lastUpdated": "۱۴۰۵/۰۷/۳۰"
+    }
+  ],
+  "ledger": [
+    {
+      "id": "ldg_1",
+      "tenantId": "tenant_cafegol",
+      "type": "income",
+      "category": "فروش روزانه منو",
+      "title": "تسویه سفارش #GL-۸۹۴ (میز ۴)",
+      "amount": 318000,
+      "jalaliDate": "۱۴۰۵/۰۷/۳۰",
+      "paymentMethod": "کارت‌به‌کارت",
+      "referenceCode": "GL-894"
+    },
+    {
+      "id": "ldg_2",
+      "tenantId": "tenant_cafegol",
+      "type": "income",
+      "category": "فروش صندوق POS",
+      "title": "تسویه سفارش #GL-۸۹۳ (بیرون‌بر)",
+      "amount": 236000,
+      "jalaliDate": "۱۴۰۵/۰۷/۳۰",
+      "paymentMethod": "کارتخوان",
+      "referenceCode": "GL-893"
+    },
+    {
+      "id": "ldg_3",
+      "tenantId": "tenant_cafegol",
+      "type": "expense",
+      "category": "خرید مواد اولیه",
+      "title": "فاکتور شیر تازه و لبنیات صبحگاهی",
+      "amount": 1450000,
+      "jalaliDate": "۱۴۰۵/۰۷/۳۰",
+      "paymentMethod": "کارت‌به‌کارت",
+      "referenceCode": "EXP-402"
+    },
+    {
+      "id": "ldg_4",
+      "tenantId": "tenant_cafegol",
+      "type": "income",
+      "category": "فروش روزانه منو",
+      "title": "مجموع فروش شیفت عصر دیروز (۴۲ سفارش)",
+      "amount": 14850000,
+      "jalaliDate": "۱۴۰۵/۰۷/۲۹",
+      "paymentMethod": "ترکیبی",
+      "referenceCode": "SHF-198"
+    },
+    {
+      "id": "ldg_5",
+      "tenantId": "tenant_cafegol",
+      "type": "expense",
+      "category": "نگهداری گلخانه و گیاهان",
+      "title": "خرید گل‌های موگه تازه و کود ارگانیک",
+      "amount": 820000,
+      "jalaliDate": "۱۴۰۵/۰۷/۲۸",
+      "paymentMethod": "نقدی صندوق",
+      "referenceCode": "EXP-401"
+    }
+  ],
+  "shifts": [
+    {
+      "id": "shift_today",
+      "tenantId": "tenant_cafegol",
+      "openedAt": "۰۸:۰۰ صبح - ۱۴۰۵/۰۷/۳۰",
+      "openingBalance": 2500000,
+      "cashSales": 1850000,
+      "cardToCardSales": 6420000,
+      "posReaderSales": 9180000,
+      "expensesOut": 820000,
+      "expectedCash": 3530000,
+      "status": "open",
+      "cashierName": "مریم کاظمی (صندوق‌دار شیفت صبح)"
+    },
+    {
+      "id": "shift_roastery_1",
+      "tenantId": "tenant_roastery",
+      "openedAt": "۰۷:۳۰ صبح - ۱۴۰۵/۰۷/۳۰",
+      "openingBalance": 1500000,
+      "cashSales": 420000,
+      "cardToCardSales": 2150000,
+      "posReaderSales": 3890000,
+      "expensesOut": 0,
+      "expectedCash": 1920000,
+      "status": "open",
+      "cashierName": "آرمان هدایت (رستری نیلوفر آبی)"
+    },
+    {
+      "id": "shift_bagh_1",
+      "tenantId": "tenant_bagh",
+      "openedAt": "۰۸:۰۰ صبح - ۱۴۰۵/۰۷/۳۰",
+      "openingBalance": 2000000,
+      "cashSales": 650000,
+      "cardToCardSales": 1800000,
+      "posReaderSales": 2400000,
+      "expensesOut": 300000,
+      "expectedCash": 2350000,
+      "status": "open",
+      "cashierName": "سارا فرهادی (کافه باغ آوانو)"
+    }
+  ],
+  "staff": [
+    {
+      "id": "stf_1",
+      "tenantId": "tenant_cafegol",
+      "name": "سهراب سپهری",
+      "role": "owner",
+      "roleLabel": "مالک و مدیر کافه",
+      "phone": "09123456789",
+      "active": true,
+      "permissions": [
+        "همه دسترسی‌ها",
+        "حسابداری",
+        "تنظیمات بانکی",
+        "مدیریت اشتراک"
+      ],
+      "lastLogin": "۱۰ دقیقه پیش"
+    },
+    {
+      "id": "stf_2",
+      "tenantId": "tenant_cafegol",
+      "name": "امیرحسین جاوید",
+      "role": "manager",
+      "roleLabel": "مدیر داخلی و سرپرست باریستا",
+      "phone": "09129876543",
+      "active": true,
+      "permissions": [
+        "مدیریت محصولات",
+        "انبارداری و رسپی",
+        "مدیریت سفارش‌ها",
+        "صندوق POS"
+      ],
+      "lastLogin": "۱ ساعت پیش"
+    },
+    {
+      "id": "stf_3",
+      "tenantId": "tenant_cafegol",
+      "name": "مریم کاظمی",
+      "role": "cashier",
+      "roleLabel": "صندوق‌دار (Cashier)",
+      "phone": "09361122334",
+      "active": true,
+      "permissions": [
+        "صندوق POS",
+        "تأیید رسید کارت‌به‌کارت",
+        "ثبت و بستن شیفت صندوق"
+      ],
+      "lastLogin": "آنلاین"
+    },
+    {
+      "id": "stf_4",
+      "tenantId": "tenant_cafegol",
+      "name": "کیوان رضایی",
+      "role": "kitchen",
+      "roleLabel": "باریستا و بار گرم (Kitchen)",
+      "phone": "09195566778",
+      "active": true,
+      "permissions": [
+        "برد زنده سفارش‌ها",
+        "تغییر وضعیت آماده‌سازی",
+        "اعلام اتمام موجودی آیتم"
+      ],
+      "lastLogin": "آنلاین"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "tkt_101",
+      "tenantId": "tenant_cafegol",
+      "tenantName": "کافه گل (تهران)",
+      "subject": "راهنمایی اتصال وب‌هوک ربات بله روی دامنه اختصاصی",
+      "priority": "medium",
+      "status": "answered",
+      "createdAt": "۱۴۰۵/۰۷/۲۹ - ۱۶:۲۰",
+      "messages": [
+        {
+          "sender": "owner",
+          "senderName": "سهراب سپهری (کافه گل)",
+          "text": "سلام وقت بخیر، توکن بازوی بله را از @botfather دریافت کردم. آیا برای ست کردن وب‌هوک نیاز به تنظیم خاصی در cPanel هست؟",
+          "time": "۱۶:۲۰"
+        },
+        {
+          "sender": "superadmin",
+          "senderName": "پشتیبانی فنی پلتفرم کافه گل",
+          "text": "سلام جناب سپهری عزیز! خیر، نیازی به تنظیم دستی در cPanel نیست. کافیست در پنل مدیریت دکمه «ثبت خودکار Webhook» را بزنید تا آدرس HTTPS به سرور بله معرفی شود.",
+          "time": "۱۶:۳۵"
+        }
+      ]
+    },
+    {
+      "id": "tkt_102",
+      "tenantId": "tenant_bagh",
+      "tenantName": "کافه باغ آوانو (شیراز)",
+      "subject": "تأیید فیش واریزی تمدید اشتراک سالانه",
+      "priority": "high",
+      "status": "open",
+      "createdAt": "۱۴۰۵/۰۷/۳۰ - ۰۹:۱۵",
+      "messages": [
+        {
+          "sender": "owner",
+          "senderName": "سارا فرهادی (کافه باغ آوانو)",
+          "text": "مبلغ اشتراک سالانه پلن گلخانه را کارت‌به‌کارت کردم و تصویر فیش را در بخش اشتراک بارگذاری نمودم. لطفاً بررسی و فعال فرمایید.",
+          "time": "۰۹:۱۵"
+        }
+      ]
+    }
+  ],
+  "otpChallenges": [],
+  "botConfig": {
+    "baleBotToken": "1948271042:AAH9xK8mPqL2vR5nTzW0cJ4bY7gF1dM3sE",
+    "telegramBotToken": "7102938475:AAHkL9pQ2wR4xT6yU8iO0pA3sD5fG7hJ9k",
+    "telegramProxyUrl": "https://tg-relay.cafegol-worker.workers.dev/bot",
+    "lastWebhookSync": "۱۴۰۵/۰۷/۳۰ - ۱۰:۱۵"
+  },
+  "cronLogs": [
+    {
+      "id": "cron_init_1",
+      "command": "php artisan schedule:run (queue:work --stop-when-empty + check-subscriptions)",
+      "executedAt": "۱۴۰۵/۰۷/۳۰ - ۱۰:۲۰",
+      "summary": "۳ صف اعلان پردازش شد • وضعیت اشتراک ۳ کافه بررسی گردید."
+    }
+  ]
+}

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SaaSPlan, TenantCafe } from '../types';
 import { formatToman, toPersianNum } from '../utils/persian';
+import { cafeGolApi } from '../api/client';
 
 interface MarketingAndOnboardingProps {
   plans: SaaSPlan[];
@@ -18,7 +19,15 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
   const [authChannel, setAuthChannel] = useState<'bale' | 'telegram' | 'email'>('bale');
   const [identifier, setIdentifier] = useState<string>('09123456789');
   const [otpSent, setOtpSent] = useState<boolean>(false);
-  const [otpCode, setOtpCode] = useState<string>('۵۸۴۹۲۰');
+  const [otpCode, setOtpCode] = useState<string>('');
+  const [serverIssuedCode, setServerIssuedCode] = useState<string | null>(null);
+  const [botSessionToken, setBotSessionToken] = useState<string>('');
+  const [botDeepLink, setBotDeepLink] = useState<string | null>(null);
+  const [countdown, setCountdown] = useState<number>(0);
+  const [authMessage, setAuthMessage] = useState<{ type: 'ok' | 'err'; text: string } | null>(
+    null
+  );
+  const [loading, setLoading] = useState<boolean>(false);
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
 
   // Onboarding Wizard State
@@ -26,6 +35,105 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
   const [cafeSlug, setCafeSlug] = useState<string>('cafe-baharestan');
   const [cardNum, setCardNum] = useState<string>('۶۰۳۷-۹۹۷۵-۱۲۳۴-۵۶۷۸');
   const [cardHolder, setCardHolder] = useState<string>('امیرمحمد رضوانی');
+
+  useEffect(() => {
+    if (countdown <= 0) return;
+    const timer = setInterval(() => {
+      setCountdown((prev) => Math.max(0, prev - 1));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [countdown]);
+
+  const handleRequestOtp = async () => {
+    setLoading(true);
+    setAuthMessage(null);
+    try {
+      const res = await cafeGolApi.sendOtp(identifier, authChannel);
+      setOtpSent(true);
+      setServerIssuedCode(res.demoOtpCode);
+      setOtpCode(toPersianNum(res.demoOtpCode));
+      setBotSessionToken(res.botSessionToken);
+      setBotDeepLink(res.botDeepLink);
+      setCountdown(res.expiresInSeconds);
+      setAuthMessage({
+        type: 'ok',
+        text: `کد ۶ رقمی در دیتابیس با هش SHA-256 صادر شد (اعتبار ۲ دقیقه، حداکثر ۵ تلاش). کد صادرشده: ${toPersianNum(
+          res.demoOtpCode
+        )}`,
+      });
+    } catch (err: unknown) {
+      setAuthMessage({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'خطا در ارسال کد تأیید',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOtp = async () => {
+    setLoading(true);
+    setAuthMessage(null);
+    try {
+      await cafeGolApi.verifyOtp(identifier, authChannel, otpCode);
+      setAuthMessage({
+        type: 'ok',
+        text: 'احراز هویت با موفقیت انجام شد. لطفاً اطلاعات کافه خود را تکمیل کنید.',
+      });
+      setShowOnboarding(true);
+    } catch (err: unknown) {
+      setAuthMessage({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'کد وارد شده نامعتبر است.',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSimulateBotWebhook = async () => {
+    if (authChannel === 'email' || !botSessionToken) return;
+    setLoading(true);
+    try {
+      const res = await cafeGolApi.triggerBotWebhook(authChannel, botSessionToken, identifier);
+      setAuthMessage({
+        type: 'ok',
+        text: `${res.message} ورود خودکار انجام شد!`,
+      });
+      setShowOnboarding(true);
+    } catch (err: unknown) {
+      setAuthMessage({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'خطا در وب‌هوک ربات',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCompleteOnboarding = async () => {
+    setLoading(true);
+    setAuthMessage(null);
+    try {
+      const res = await cafeGolApi.registerTenant({
+        name: cafeName,
+        slug: cafeSlug,
+        cardNumber: cardNum,
+        cardHolderName: cardHolder,
+        ownerName: cardHolder,
+        ownerPhone: identifier,
+        ownerEmail: authChannel === 'email' ? identifier : `owner@${cafeSlug}.ir`,
+      });
+      onRegisterNewCafe(res.tenant);
+    } catch (err: unknown) {
+      setAuthMessage({
+        type: 'err',
+        text: err instanceof Error ? err.message : 'خطا در ثبت کافه جدید',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-on-surface py-8 px-4">
@@ -63,8 +171,20 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
             </div>
           </div>
 
-          {/* Interactive Multi-Driver OTP Login & Registration Card */}
+          {/* Interactive Multi-Driver OTP Login & Registration Card (Connected to /api/v1/auth/otp/*) */}
           <div className="bg-surface-container-low p-6 rounded-3xl border border-outline-variant/50 space-y-4">
+            {authMessage && (
+              <div
+                className={`p-3 rounded-2xl text-[12px] font-bold ${
+                  authMessage.type === 'ok'
+                    ? 'bg-secondary-container text-primary'
+                    : 'bg-error-container text-on-error-container'
+                }`}
+              >
+                {authMessage.text}
+              </div>
+            )}
+
             {!showOnboarding ? (
               <>
                 <div className="flex items-center justify-between">
@@ -72,7 +192,7 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                     ثبت‌نام کافه جدید / ورود با OTP
                   </h3>
                   <span className="text-[11px] bg-secondary-container text-primary px-2.5 py-0.5 rounded-full font-bold">
-                    ۱۴ روز رایگان
+                    API زنده (/api/v1/auth)
                   </span>
                 </div>
 
@@ -83,6 +203,7 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                     onClick={() => {
                       setAuthChannel('bale');
                       setOtpSent(false);
+                      setAuthMessage(null);
                     }}
                     className={`py-2 rounded-xl text-[12px] font-bold transition-all ${
                       authChannel === 'bale'
@@ -97,6 +218,7 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                     onClick={() => {
                       setAuthChannel('telegram');
                       setOtpSent(false);
+                      setAuthMessage(null);
                     }}
                     className={`py-2 rounded-xl text-[12px] font-bold transition-all ${
                       authChannel === 'telegram'
@@ -111,6 +233,8 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                     onClick={() => {
                       setAuthChannel('email');
                       setOtpSent(false);
+                      setIdentifier('owner@cafegol.ir');
+                      setAuthMessage(null);
                     }}
                     className={`py-2 rounded-xl text-[12px] font-bold transition-all ${
                       authChannel === 'email'
@@ -148,16 +272,16 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                         </span>
                       </div>
                       <p className="text-on-surface-variant">
-                        ۱. روی لینک توکن یک‌بارمصرف{' '}
+                        ۱. لینک توکن یک‌بارمصرف:{' '}
                         <code className="font-mono text-primary" dir="ltr">
-                          {authChannel === 'bale'
-                            ? 'https://ble.ir/cafegol_bot?start=tk_98a1'
-                            : 'https://t.me/cafegol_bot?start=tk_98a1'}
-                        </code>{' '}
-                        بزنید.
+                          {botDeepLink ||
+                            (authChannel === 'bale'
+                              ? 'https://ble.ir/CafeGolOtpBot?start=session'
+                              : 'https://t.me/CafeGolOtpBot?start=session')}
+                        </code>
                       </p>
                       <p className="text-on-surface-variant">
-                        ۲. شماره تماس خود را در ربات به اشتراک بگذارید تا کد ۶ رقمی (اعتبار ۲ دقیقه، حداکثر ۵ تلاش) صادر شود.
+                        ۲. کد با هش SHA-256 ذخیره شده، پس از ۱۲۰ ثانیه منقضی می‌شود و سقف ۵ تلاش دارد.
                       </p>
                     </div>
                   )}
@@ -165,17 +289,23 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                   {!otpSent ? (
                     <button
                       type="button"
-                      onClick={() => setOtpSent(true)}
-                      className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-[13px]"
+                      disabled={loading}
+                      onClick={handleRequestOtp}
+                      className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-[13px] disabled:opacity-50"
                     >
-                      دریافت کد تأیید یک‌بارمصرف (OTP)
+                      {loading ? 'در حال صدور کد...' : 'دریافت کد تأیید یک‌بارمصرف (POST /api/v1/auth/otp/send)'}
                     </button>
                   ) : (
                     <div className="space-y-3 pt-1">
                       <div>
-                        <label className="block text-[11px] text-primary font-bold mb-1">
-                          کد ۶ رقمی ارسال‌شده (انقضا: ۱۲۰ ثانیه):
-                        </label>
+                        <div className="flex items-center justify-between text-[11px] mb-1">
+                          <span className="text-primary font-bold">
+                            کد ۶ رقمی ارسال‌شده (کد تست: {toPersianNum(serverIssuedCode || '')}):
+                          </span>
+                          <span className="text-outline font-bold">
+                            مهلت باقی‌مانده: {toPersianNum(countdown)} ثانیه
+                          </span>
+                        </div>
                         <input
                           type="text"
                           value={otpCode}
@@ -183,13 +313,26 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                           className="w-full rounded-xl bg-surface-container-lowest border-2 border-primary px-3 py-2 text-center text-[16px] font-bold tracking-widest"
                         />
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => setShowOnboarding(true)}
-                        className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-[13px]"
-                      >
-                        تأیید کد و شروع ویزارد ساخت کافه ←
-                      </button>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          disabled={loading}
+                          onClick={handleVerifyOtp}
+                          className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-[12px]"
+                        >
+                          تأیید کد و ادامه ←
+                        </button>
+                        {authChannel !== 'email' && (
+                          <button
+                            type="button"
+                            disabled={loading}
+                            onClick={handleSimulateBotWebhook}
+                            className="w-full py-3 rounded-xl bg-secondary-container text-primary font-bold text-[11px]"
+                          >
+                            شبیه‌سازی Webhook ربات ({authChannel})
+                          </button>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -197,7 +340,7 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
             ) : (
               <div className="space-y-3">
                 <h3 className="text-[16px] font-bold text-primary">
-                  ویزارد راه‌اندازی سریع کافه (Onboarding)
+                  ویزارد راه‌اندازی سریع کافه (Onboarding - ایجاد Tenant ایزوله)
                 </h3>
                 <div>
                   <label className="block text-[11px] text-outline mb-1">نام کافه شما</label>
@@ -210,7 +353,7 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                 </div>
                 <div>
                   <label className="block text-[11px] text-outline mb-1">
-                    شناسه آدرس منو (Slug)
+                    شناسه آدرس منو (Slug: /c/{cafeSlug})
                   </label>
                   <input
                     type="text"
@@ -245,45 +388,13 @@ export const MarketingAndOnboarding: React.FC<MarketingAndOnboardingProps> = ({
                 </div>
                 <button
                   type="button"
-                  onClick={() => {
-                    onRegisterNewCafe({
-                      id: `tenant_${Date.now()}`,
-                      slug: cafeSlug || 'my-cafe',
-                      name: cafeName || 'کافه جدید',
-                      tagline: 'آرامش یک فنجان قهوه تازه در کافه ما',
-                      welcomeTitle: `به ${cafeName} خوش آمدید`,
-                      welcomeSubtitle: 'سفارش آنلاین از منوی دیجیتال کافه',
-                      badgeText: 'دم‌آوری تخصصی روزانه',
-                      storyQuote: `«${cafeName}، میزبان لحظات گرم و صمیمی شما با بهترین دانه‌های قهوه.»`,
-                      address: 'تهران، خیابان ولیعصر، پلاک ۱۱۰',
-                      phone: identifier,
-                      instagram: `@${cafeSlug}`,
-                      wifiSsid: 'Cafe_Guest_WiFi',
-                      wifiPass: 'welcome1405',
-                      weekdayHours: '۸:۰۰ صبح الی ۲۳:۰۰ شب',
-                      weekendHours: '۹:۰۰ صبح الی ۲۴:۰۰ بامداد',
-                      isOpen: true,
-                      primaryColorPalette: 'olive',
-                      cardNumber: cardNum,
-                      cardHolderName: cardHolder,
-                      bankName: 'بانک ملت',
-                      shebaNumber: 'IR000120000000000000000001',
-                      taxPercentage: 0,
-                      serviceFeePercentage: 0,
-                      loyaltyDiscountAmount: 15000,
-                      planId: 'plan_trial',
-                      subscriptionEndsAt: '۱۴۰۵/۰۸/۱۵',
-                      status: 'trial',
-                      ownerName: cardHolder,
-                      ownerPhone: identifier,
-                      ownerEmail: 'owner@example.ir',
-                      ordersCountThisMonth: 1,
-                      storageUsedMb: 12,
-                    });
-                  }}
+                  disabled={loading}
+                  onClick={handleCompleteOnboarding}
                   className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-[13px]"
                 >
-                  ساخت کافه و ورود به پنل مدیریت ←
+                  {loading
+                    ? 'در حال ساخت دیتابیس ایزوله کافه...'
+                    : 'ساخت کافه در سرور و ورود به پنل مدیریت ←'}
                 </button>
               </div>
             )}
