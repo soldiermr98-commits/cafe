@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>فهرست منو | کافه گل</title>
+<!-- Persian Font Vazirmatn & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#323B27",
+            "on-secondary-fixed": "#E8DEC3",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#181d0e",
+            "on-tertiary-fixed": "#211b08",
+            "error": "#ffb4ab",
+            "on-primary": "#1A2208",
+            "surface-variant": "#262D1E",
+            "on-tertiary-container": "#fffaf8",
+            "secondary-fixed-dim": "#c0cc9f",
+            "secondary-container": "#2A3320",
+            "on-background": "#F2EDDC",
+            "on-secondary": "#ffffff",
+            "error-container": "#93000a",
+            "surface-container-highest": "#333C2A",
+            "outline": "#76786a",
+            "on-error-container": "#ffdad6",
+            "on-surface-variant": "#A9B294",
+            "inverse-primary": "#536124",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#F2EDDC",
+            "on-surface": "#F2EDDC",
+            "tertiary-fixed": "#E8DEC3",
+            "primary-container": "#B5C47E",
+            "surface-container": "#22291B",
+            "primary": "#B5C47E",
+            "background": "#1B2016",
+            "secondary": "#B5C47E",
+            "tertiary": "#E8DEC3",
+            "on-secondary-container": "#DCE8BA",
+            "on-primary-container": "#1B220B",
+            "surface-bright": "#22291B",
+            "primary-fixed-dim": "#B5C47E",
+            "surface-container-lowest": "#141810",
+            "on-primary-fixed": "#1B220B",
+            "surface-dim": "#171C13",
+            "primary-fixed": "#B5C47E",
+            "surface-container-low": "#1F2518",
+            "on-secondary-fixed-variant": "#A9B294",
+            "surface": "#1B2016",
+            "surface-container-high": "#2A3222",
+            "surface-tint": "#B5C47E",
+            "outline-variant": "rgba(181, 196, 126, 0.14)",
+            "tertiary-container": "#3F3826",
+            "on-tertiary-fixed-variant": "#E8DEC3",
+            "on-primary-fixed-variant": "#2E3612",
+            "tertiary-fixed-dim": "#d3c5a8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Vazirmatn"],
+            "price-display": ["Vazirmatn"],
+            "body-lg": ["Vazirmatn"],
+            "label-md": ["Vazirmatn"],
+            "body-md": ["Vazirmatn"],
+            "display-lg": ["Vazirmatn"],
+            "headline-sm": ["Vazirmatn"],
+            "headline-lg": ["Vazirmatn"],
+            "label-lg": ["Vazirmatn"],
+            "display-lg-mobile": ["Vazirmatn"],
+            "headline-md": ["Vazirmatn"],
+            "label-sm": ["Vazirmatn"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "price-display": ["18px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "0", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+            "display-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600"}],
+            "display-lg-mobile": ["26px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "30px", "letterSpacing": "0", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Hide scrollbar for category pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Organic Leaf-Arch Mask for image cards */
+    .leaf-arch-mask {
+      border-radius: 20px 20px 14px 14px;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#1B2016] text-[#F2EDDC] font-body-md antialiased selection:bg-[#B5C47E]/30 selection:text-[#F2EDDC] relative min-h-screen pb-36">
+<!-- Watermark Botanical Muguet Line-Art Texture recolored for Dark Mode -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.07] z-0 overflow-hidden select-none flex flex-col justify-between">
+<div class="p-8 text-[#B5C47E] font-serif italic text-xs tracking-widest">lili · muguet · گل موگه</div>
+<div class="flex justify-center items-center scale-150 transform rotate-12">
+<!-- Ambient Muguet botanical vector pattern -->
+<svg class="text-[#B5C47E]" fill="none" height="400" stroke="currentColor" stroke-width="0.75" viewbox="0 0 100 100" width="400">
+<path d="M20,95 Q35,50 65,15"></path>
+<path d="M40,55 Q50,45 60,52 Q58,62 48,60 Z"></path>
+<path d="M50,40 Q62,30 72,38 Q70,48 58,46 Z"></path>
+<path d="M58,25 Q70,16 80,24 Q78,34 66,32 Z"></path>
+<path d="M15,80 Q30,70 42,85"></path>
+</svg>
+</div>
+<div class="p-6 text-left text-[#B5C47E] font-serif italic text-[10px] tracking-widest">lili sanctuary · کافه گل</div>
+</div>
+<!-- Shared TopAppBar Container (Dark Mode Botanical Solace) -->
+<header class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-margin py-space-sm h-14 w-full max-w-lg mx-auto bg-[#1B2016]/90 backdrop-blur-md border-b border-[rgba(181,196,126,0.08)] shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-[#B5C47E] hover:bg-[#262D1E] active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined fill-1" data-icon="spa">spa</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-[#F2EDDC]">کافه گل</h1>
+</div>
+<!-- Table indicator & Botanical Theme Switch -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 bg-[#262D1E] border border-[rgba(181,196,126,0.14)] px-3 py-1 rounded-full text-[#B5C47E] font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" data-icon="table_restaurant">table_restaurant</span>
+<span class="text-[#F2EDDC] text-xs font-medium">میز شماره ۴</span>
+</div>
+<!-- Theme Switch with Dark Mode Activated (Moon Icon) -->
+<button class="w-9 h-9 rounded-full bg-[#262D1E] border border-[rgba(181,196,126,0.2)] flex items-center justify-center text-[#B5C47E] hover:text-[#F2EDDC] hover:border-[#B5C47E]/40 transition-all active:scale-95 shadow-sm" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-lg fill-1" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-[#A9B294] hover:text-[#F2EDDC] hover:bg-[#262D1E] active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Mobile Flow 390px viewport target) -->
+<main class="relative z-10 pt-16 max-w-lg mx-auto px-margin">
+<!-- Title & Subtitle Banner -->
+<section class="mt-space-md mb-space-sm">
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="text-headline-lg font-headline-lg font-bold text-[#F2EDDC]">منوی کافه گل</h2>
+<p class="text-body-sm font-body-sm text-[#A9B294] mt-0.5">آرامش یک فنجان تازگی در سایه‌سار برگ‌های سبز</p>
+</div>
+<span class="inline-flex items-center gap-1.5 text-[#B5C47E] text-label-sm font-label-sm bg-[#262D1E] border border-[rgba(181,196,126,0.22)] px-2.5 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B5C47E] animate-pulse"></span>
+          سفارش آنلاین فعال
+        </span>
+</div>
+<!-- Search Input Field -->
+<div class="mt-space-md relative">
+<span class="absolute inset-y-0 right-3.5 flex items-center pointer-events-none text-[#A9B294]">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</span>
+<input class="w-full pr-11 pl-10 py-2.5 rounded-xl bg-[#22291B] border border-[rgba(181,196,126,0.15)] focus:outline-none focus:border-[#B5C47E] focus:ring-1 focus:ring-[#B5C47E] text-body-md font-body-md placeholder:text-[#A9B294]/70 text-[#F2EDDC] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" placeholder="جستجوی قهوه، دمنوش، خوراکی..." type="text"/>
+<button class="absolute inset-y-0 left-2.5 flex items-center text-[#A9B294] hover:text-[#B5C47E]">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+</button>
+</div>
+</section>
+<!-- Sticky Horizontal Category Tabs (تراشه‌های دسته‌بندی در تم تیره) -->
+<nav class="sticky top-14 z-30 -mx-margin px-margin py-2.5 bg-[#1B2016]/95 backdrop-blur-md overflow-x-auto no-scrollbar flex items-center gap-2 border-b border-[rgba(181,196,126,0.06)]">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-[#B5C47E] text-[#1A2208] font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-[0_2px_10px_rgba(181,196,126,0.25)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm fill-1" data-icon="spa">spa</span>
+<span>اسپرسو بار</span>
+</button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-[#22291B] text-[#C7C2B2] font-label-md text-label-md border border-[rgba(181,196,126,0.12)] hover:bg-[#262D1E] hover:text-[#F2EDDC] active:scale-95 transition-all">
+        نوشیدنی‌های خنک
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-[#22291B] text-[#C7C2B2] font-label-md text-label-md border border-[rgba(181,196,126,0.12)] hover:bg-[#262D1E] hover:text-[#F2EDDC] active:scale-95 transition-all">
+        دم‌آوری دستی
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-[#22291B] text-[#C7C2B2] font-label-md text-label-md border border-[rgba(181,196,126,0.12)] hover:bg-[#262D1E] hover:text-[#F2EDDC] active:scale-95 transition-all">
+        دسر و شیرینی
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-[#22291B] text-[#C7C2B2] font-label-md text-label-md border border-[rgba(181,196,126,0.12)] hover:bg-[#262D1E] hover:text-[#F2EDDC] active:scale-95 transition-all">
+        ساندویچ و بار گرم
+      </button>
+</nav>
+<!-- Section: اسپرسو بار و نوشیدنی‌ها -->
+<div class="mt-space-md space-y-space-md">
+<!-- Product Card 1: فلت وایت شکوفه -->
+<article class="p-3.5 bg-[#262D1E] rounded-2xl shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.35)] border border-[rgba(181,196,126,0.12)] flex gap-3.5 hover:border-[rgba(181,196,126,0.25)] transition-all group">
+<div class="relative w-28 h-28 flex-shrink-0 overflow-hidden leaf-arch-mask bg-[#1F2518]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An artisanal cup of velvety flat white coffee decorated with a gentle white blossom latte art in a handmade sage green ceramic cup, softly lit by morning window sunlight in a serene botanic cafe interior with natural linen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCir5DmddK4xISxHlZSNer5Sh1iVs-kx3gcRYvbteKSIT2BiOvunyTvFImYquhmr9plX7bhTxE2VwIbJYADwsVMY4k_q8_XBnYqSTwcQPmIt4aNWiwoNCubrt0rEqQxneFz7AoFv-MEoIWHM7EE8GWYTZPbz3Hc72CKBVMVNH-tekH20xOIc5QXiXViN8dg01ZYxvi_dtGEAcA9Q59kZNQarG5ccbY3aAdhgvG2K6Gy6xy91bWutjZ1rg"/>
+<span class="absolute top-1.5 right-1.5 bg-[#B5C47E] text-[#1B220B] font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold backdrop-blur-sm shadow-sm">
+            پیشنهاد ویژه
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-headline-sm font-headline-sm font-bold text-[#F2EDDC]">فلت وایت شکوفه</h3>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9B294] line-clamp-2 mt-1 leading-relaxed">
+              ترکیب دوبل اسپرسو، شیر مخملی و عصاره ملایم بهارنارنج
+            </p>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-[rgba(181,196,126,0.1)]">
+<span class="text-price-display font-price-display text-[#B5C47E] font-bold">
+              ۹۵٬۰۰۰ <span class="text-xs font-normal text-[#A9B294]">تومان</span>
+</span>
+<button aria-label="افزودن به سبد خرید" class="w-8 h-8 rounded-full bg-[#323B27] text-[#B5C47E] hover:bg-[#B5C47E] hover:text-[#1A2208] flex items-center justify-center transition-colors active:scale-90 shadow-sm border border-[rgba(181,196,126,0.18)]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2: کولد برو پرتقال و دارچین -->
+<article class="p-3.5 bg-[#262D1E] rounded-2xl shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.35)] border border-[rgba(181,196,126,0.12)] flex gap-3.5 hover:border-[rgba(181,196,126,0.25)] transition-all group">
+<div class="relative w-28 h-28 flex-shrink-0 overflow-hidden leaf-arch-mask bg-[#1F2518]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A cold brew glass infused with dehydrated citrus orange slice and whole cinnamon stick, clear ice cube, refreshing droplets on crystal glass, ambient natural sunlit botanical cafe table setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqyHSgD5UWO4TEXZhwFqt5OQmvrTcj2sBEg2DkrgD-xeouRhCqKrIAyKY0VeqMDMw_fQiEv-_ahzbYYdwCYK43XSYaIXrAQK281BUkVJV0wgr0P9F6lv5L7GxHgEBXdqRjeRDlxvaaY5rzC0IcYkogR655TiakY4K7IBFgJck0yK6CKsN3SyDSph8SskMp0AdlB6pSe-vwAITNm54Ya4Ayicwg-ERAkDrG_yVXJTUvTIgNqAusCOusEQ"/>
+<span class="absolute top-1.5 right-1.5 bg-[#3F3826] text-[#E8DEC3] border border-[#E8DEC3]/20 font-label-sm text-[10px] px-2 py-0.5 rounded-full font-medium backdrop-blur-sm shadow-sm">
+            جدید
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-headline-sm font-headline-sm font-bold text-[#F2EDDC]">کولد برو پرتقال و دارچین</h3>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9B294] line-clamp-2 mt-1 leading-relaxed">
+              دم‌آوری سرد ۱۸ ساعته با عطر پرتقال خشک
+            </p>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-[rgba(181,196,126,0.1)]">
+<span class="text-price-display font-price-display text-[#B5C47E] font-bold">
+              ۱۰۵٬۰۰۰ <span class="text-xs font-normal text-[#A9B294]">تومان</span>
+</span>
+<button aria-label="افزودن به سبد خرید" class="w-8 h-8 rounded-full bg-[#323B27] text-[#B5C47E] hover:bg-[#B5C47E] hover:text-[#1A2208] flex items-center justify-center transition-colors active:scale-90 shadow-sm border border-[rgba(181,196,126,0.18)]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Botanical Muguet Sprig Section Divider (جداکننده گیاهی موگه) -->
+<div class="my-space-lg flex items-center justify-center gap-3">
+<div class="h-px bg-[rgba(181,196,126,0.18)] flex-1 max-w-[80px]"></div>
+<div class="flex items-center gap-1 text-[#B5C47E]/70">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" viewbox="0 0 24 24" width="24">
+<path d="M12 21C12 15 15 8 19 4"></path>
+<path d="M16 8C14.5 7.5 13 8.5 13 10C13 11.5 14.5 12 16 11.5Z" fill="#B5C47E" fill-opacity="0.25"></path>
+<path d="M13 13C11.5 12.5 10 13.5 10 15C10 16.5 11.5 17 13 16.5Z" fill="#B5C47E" fill-opacity="0.25"></path>
+<path d="M7 19C7 16 8.5 13.5 10.5 12"></path>
+</svg>
+</div>
+<div class="h-px bg-[rgba(181,196,126,0.18)] flex-1 max-w-[80px]"></div>
+</div>
+<!-- Section: شیرینی، دمنوش و بار گرم -->
+<div class="space-y-space-md">
+<!-- Product Card 3: تارت گلابی و بادام -->
+<article class="p-3.5 bg-[#262D1E] rounded-2xl shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.35)] border border-[rgba(181,196,126,0.12)] flex gap-3.5 hover:border-[rgba(181,196,126,0.25)] transition-all group">
+<div class="relative w-28 h-28 flex-shrink-0 overflow-hidden leaf-arch-mask bg-[#1F2518]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An artisanal baked pear and almond tart sliced neatly, revealing rich golden pastry cream and toasted slivered almonds on a rustic glazed stoneware dish surrounded by gentle botanical leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxwGFwlO6VXWjpOaedFBwf8kPfWusShvaJeL6isJdml_qrE9-VXR1lEVr11FB0C7eVPcK0QTeN9z72s12MrOGfzc4g4zck4xFadzFu3PNv232dJrww2VWQReiVLFx_1O-v-yS5slBzGY4edOy_GGM7LddadahkLNDwKFPDxY161wYqGXYSzf91rHxowayaKxVsK_4rp39Il96EHUBG1rtalFDF8_MR3H3_8qxketU--CkXPNI7mit7qQ"/>
+<span class="absolute top-1.5 right-1.5 bg-[#2A3320] text-[#DCE8BA] border border-[rgba(181,196,126,0.2)] font-label-sm text-[10px] px-2 py-0.5 rounded-full font-medium">
+            گیاهی
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-headline-sm font-headline-sm font-bold text-[#F2EDDC]">تارت گلابی و بادام</h3>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9B294] line-clamp-2 mt-1 leading-relaxed">
+              تارت دست‌ساز با کرم پاتیستیر و خلال بادام تست شده
+            </p>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-[rgba(181,196,126,0.1)]">
+<span class="text-price-display font-price-display text-[#B5C47E] font-bold">
+              ۱۲۰٬۰۰۰ <span class="text-xs font-normal text-[#A9B294]">تومان</span>
+</span>
+<button aria-label="افزودن به سبد خرید" class="w-8 h-8 rounded-full bg-[#323B27] text-[#B5C47E] hover:bg-[#B5C47E] hover:text-[#1A2208] flex items-center justify-center transition-colors active:scale-90 shadow-sm border border-[rgba(181,196,126,0.18)]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4: دمنوش بابونه، به‌لیمو و اسطوخودوس -->
+<article class="p-3.5 bg-[#262D1E] rounded-2xl shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.35)] border border-[rgba(181,196,126,0.12)] flex gap-3.5 hover:border-[rgba(181,196,126,0.25)] transition-all group">
+<div class="relative w-28 h-28 flex-shrink-0 overflow-hidden leaf-arch-mask bg-[#1F2518]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Clear glass teapot with steaming herbal chamomile, lemon verbena, and lavender tea infused with natural golden honeycomb spoon on a weathered wooden table with soft linen napkin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_ukVgryIA9QxsndlvhImRJbH0l7VDX6aYEG_jbC1MSncIbsUB3KynxQdvdyj8-LeDDpD8qUXFiNXmi7xEITxjyndh4LIBtFb4_zVGmIWFppk0_PdIUsQx3Mo4W-XB1koE-uE_gHGjVkuQOYXvaCUy-_1eNjUWSzqnGAjJf3dq1zDxPcE4XV-dkvMktMeXCN2IDVQqtBQg6I6NIGTJHHZY901u2gSU6YUCfj_eycyM-S_xEbMZJybww"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-headline-sm font-headline-sm font-bold text-[#F2EDDC]">دمنوش آرامش</h3>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9B294] line-clamp-2 mt-1 leading-relaxed">
+              دمنوش بابونه، به‌لیمو و اسطوخودوس همراه با عسل طبیعی موم‌دار
+            </p>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-[rgba(181,196,126,0.1)]">
+<span class="text-price-display font-price-display text-[#B5C47E] font-bold">
+              ۸۰٬۰۰۰ <span class="text-xs font-normal text-[#A9B294]">تومان</span>
+</span>
+<button aria-label="افزودن به سبد خرید" class="w-8 h-8 rounded-full bg-[#323B27] text-[#B5C47E] hover:bg-[#B5C47E] hover:text-[#1A2208] flex items-center justify-center transition-colors active:scale-90 shadow-sm border border-[rgba(181,196,126,0.18)]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 5: ساندویچ آووکادو و پنیر خامه‌ای گردویی -->
+<article class="p-3.5 bg-[#262D1E] rounded-2xl shadow-[0px_4px_20px_-2px_rgba(0,0,0,0.35)] border border-[rgba(181,196,126,0.12)] flex gap-3.5 hover:border-[rgba(181,196,126,0.25)] transition-all group">
+<div class="relative w-28 h-28 flex-shrink-0 overflow-hidden leaf-arch-mask bg-[#1F2518]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crispy ciabatta sandwich layered with sliced fresh avocado, walnut cream cheese spread, and vibrant fresh basil pesto displayed elegantly in soft daylight at an upscale Iranian cafe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrKWhzcxhwAE8A4-uF5rnHkCV1ozva6-DOYaZx3JEj9MWONKi-daEp2RtKCXBW02-ykIJUUqt3ot7n8npo7Lmkz1IDa_7J_DpNibxQC5L6PrFchOQhz9WIbuXv1lkeBMgRie2KKJEYxUTn_ey4lZHPNtvorWGTaBach93q_kYjS1GWiaJCErhmUoq6F46-7j1Iuz6xgfc5pBE8aCphXGXrhyZItHX93gWy0DeUmQ5CuwV28kfH87bt_Q"/>
+<span class="absolute top-1.5 right-1.5 bg-[#3F3826] text-[#E8DEC3] border border-[#E8DEC3]/20 font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold">
+            پرفروش
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-headline-sm font-headline-sm font-bold text-[#F2EDDC]">ساندویچ آووکادو و گردو</h3>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9B294] line-clamp-2 mt-1 leading-relaxed">
+              نان چاباتا، پستوی ریحان تازه و پنیر خامه‌ای گردویی
+            </p>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-[rgba(181,196,126,0.1)]">
+<span class="text-price-display font-price-display text-[#B5C47E] font-bold">
+              ۱۴۵٬۰۰۰ <span class="text-xs font-normal text-[#A9B294]">تومان</span>
+</span>
+<button aria-label="افزودن به سبد خرید" class="w-8 h-8 rounded-full bg-[#323B27] text-[#B5C47E] hover:bg-[#B5C47E] hover:text-[#1A2208] flex items-center justify-center transition-colors active:scale-90 shadow-sm border border-[rgba(181,196,126,0.18)]">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Cart Bar Overlay (Dark Mode Botanical Solace) -->
+<aside class="fixed bottom-20 inset-x-0 z-40 max-w-lg mx-auto px-margin">
+<div class="bg-[#262D1E] text-[#F2EDDC] rounded-2xl p-3 px-4 shadow-[0px_14px_35px_-4px_rgba(0,0,0,0.55)] border border-[rgba(181,196,126,0.16)] flex items-center justify-between transition-all transform hover:scale-[1.01]">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-[#323B27] flex items-center justify-center text-[#B5C47E] relative border border-[rgba(181,196,126,0.15)]">
+<span class="material-symbols-outlined text-lg fill-1" data-icon="local_mall">local_mall</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-[#B5C47E] text-[#1A2208] text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm">۲</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-bold text-[#F2EDDC]">۲ سفارش در سبد</p>
+<p class="text-body-sm font-body-sm text-[#B5C47E] text-xs font-semibold">۲۰۰٬۰۰۰ تومان</p>
+</div>
+</div>
+<button class="bg-[#B5C47E] text-[#1A2208] hover:bg-[#C0D288] active:scale-95 transition-all text-label-md font-label-md font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-[0_2px_8px_rgba(181,196,126,0.25)]">
+<span>مشاهده سبد خرید</span>
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</aside>
+<!-- BottomNavBar (Dark Mode Botanical Solace) -->
+<nav class="fixed bottom-0 inset-x-0 z-50 flex justify-around items-center px-space-sm py-space-xs max-w-lg mx-auto pb-safe">
+<div class="w-full mx-margin mb-space-md rounded-full bg-[#262D1E]/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.6)] border border-[rgba(181,196,126,0.14)] flex justify-around items-center py-1.5 px-2">
+<!-- Tab 1: منو (Active for this menu screen) -->
+<a class="flex flex-col items-center justify-center bg-[#B5C47E] text-[#1A2208] rounded-full px-space-md py-space-xs shadow-sm active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined fill-1 text-xl" data-icon="local_cafe">local_cafe</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">منو</span>
+</a>
+<!-- Tab 2: جستجو -->
+<a class="flex flex-col items-center justify-center text-[#A9B294] hover:text-[#F2EDDC] px-space-md py-space-xs hover:bg-[#323B27] active:scale-95 transition-all duration-200 rounded-full" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+<span class="text-label-sm font-label-sm mt-0.5">جستجو</span>
+</a>
+<!-- Tab 3: سفارش‌ها -->
+<a class="flex flex-col items-center justify-center text-[#A9B294] hover:text-[#F2EDDC] px-space-md py-space-xs hover:bg-[#323B27] active:scale-95 transition-all duration-200 rounded-full" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-0.5">سفارش‌ها</span>
+</a>
+<!-- Tab 4: درباره ما -->
+<a class="flex flex-col items-center justify-center text-[#A9B294] hover:text-[#F2EDDC] px-space-md py-space-xs hover:bg-[#323B27] active:scale-95 transition-all duration-200 rounded-full" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="info">info</span>
+<span class="text-label-sm font-label-sm mt-0.5">درباره ما</span>
+</a>
+</div>
+</nav>
+</body></html>

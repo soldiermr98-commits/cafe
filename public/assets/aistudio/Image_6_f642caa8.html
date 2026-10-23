@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>درباره کافه گل - کافه گل</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#dce8ba",
+            "on-secondary-fixed": "#161e03",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#edf4da",
+            "on-tertiary-fixed": "#211b08",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dfe5cc",
+            "on-tertiary-container": "#fffaf8",
+            "secondary-fixed-dim": "#c0cc9f",
+            "secondary-container": "#d9e5b7",
+            "on-background": "#181d0e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#dfe5cc",
+            "outline": "#76786a",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#46483b",
+            "inverse-primary": "#bdce85",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2d3322",
+            "on-surface": "#181d0e",
+            "tertiary-fixed": "#efe1c3",
+            "primary-container": "#6b7a3a",
+            "surface-container": "#eaf1d8",
+            "primary": "#536124",
+            "background": "#f6fce3",
+            "secondary": "#58633e",
+            "tertiary": "#645a43",
+            "on-secondary-container": "#5c6742",
+            "on-primary-container": "#f9ffd9",
+            "surface-bright": "#f6fce3",
+            "primary-fixed-dim": "#bdce85",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#171e00",
+            "surface-dim": "#d6ddc4",
+            "primary-fixed": "#d9ea9e",
+            "surface-container-low": "#f0f7dd",
+            "on-secondary-fixed-variant": "#404b29",
+            "surface": "#f6fce3",
+            "surface-container-high": "#e5ebd2",
+            "surface-tint": "#566427",
+            "outline-variant": "#c7c8b7",
+            "tertiary-container": "#7d735a",
+            "on-tertiary-fixed-variant": "#4f4630",
+            "on-primary-fixed-variant": "#3f4c10",
+            "tertiary-fixed-dim": "#d3c5a8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Vazirmatn"],
+            "price-display": ["Vazirmatn"],
+            "body-lg": ["Vazirmatn"],
+            "label-md": ["Vazirmatn"],
+            "body-md": ["Vazirmatn"],
+            "display-lg": ["Vazirmatn"],
+            "headline-sm": ["Vazirmatn"],
+            "headline-lg": ["Vazirmatn"],
+            "label-lg": ["Vazirmatn"],
+            "display-lg-mobile": ["Vazirmatn"],
+            "headline-md": ["Vazirmatn"],
+            "label-sm": ["Vazirmatn"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "price-display": ["18px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "0", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+            "display-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600"}],
+            "display-lg-mobile": ["26px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "30px", "letterSpacing": "0", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .muguet-pattern {
+      background-color: #f6fce3;
+      background-image: radial-gradient(#6b7a3a 0.75px, transparent 0.75px), radial-gradient(#536124 0.75px, #f6fce3 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      background-opacity: 0.04;
+    }
+    .leaf-arch {
+      border-radius: 28px 28px 16px 16px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen selection:bg-secondary-container selection:text-primary relative muguet-pattern">
+<!-- Mobile Wrapper (390px viewport target) -->
+<div class="max-w-[420px] mx-auto min-h-screen bg-surface flex flex-col relative pb-32 shadow-xl border-x border-outline-variant/20">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm dark:shadow-none fixed top-0 inset-x-0 z-50 flex items-center justify-between px-margin py-space-sm h-14 w-full max-w-lg mx-auto">
+<div class="flex items-center gap-2">
+<button aria-label="spa" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container text-primary active:scale-95 transition-transform duration-200" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+</button>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed">کافه گل</span>
+</div>
+<!-- Theme Switcher & Notifications Cluster -->
+<div class="flex items-center gap-2">
+<!-- Botanical Dual-State Theme Toggle -->
+<button class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full border border-outline-variant/30 active:scale-95 transition-all text-on-surface-variant hover:text-primary" id="theme-toggle" title="تغییر پوسته">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="light_mode" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+<span class="text-label-sm font-label-sm">روز</span>
+</button>
+<button aria-label="notifications" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface-variant active:scale-95 transition-transform duration-200" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin pt-16 mt-2 space-y-space-lg">
+<!-- Hero Section with Leaf-Arch Botanical Atmosphere -->
+<section class="space-y-space-sm">
+<div class="relative overflow-hidden leaf-arch shadow-md border border-outline-variant/30 bg-surface-container-low group">
+<img class="w-full h-56 object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="An ethereal sun-drenched botanical greenhouse cafe in Tehran filled with flourishing potted fiddle-leaf figs, blooming white lily of the valley, handcrafted sage green ceramics on linen tablecloths, and gentle morning sunlight streaming through French conservatory windows creating soft shadows and a warm organic sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIf8tGPuxOOHZimVX7IXXBHDQovAOHermoa8AgDeowTXtxsMAnGDf-cuVh3lFcimzijQd3N7XMaX35XhFrkxl9HF9QyQU-ze4IaOEb9syu4SRlkoq8jlAMHPijm8WbUrfZFeMwGhlLVhQviTNfivrECFaOXDG9UuaAQj8wEtAYIkMBtTSKto-nL2NxoLDaUMSGoMtZpFRR8ont4B_FNh9RuaZRL5FI_K9i53YZZcm6TXjE8Yd4WIR6kw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent"></div>
+<!-- Badge on Hero -->
+<div class="absolute top-space-sm right-space-sm bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm border border-secondary-container/50">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="text-label-sm font-label-sm font-semibold text-primary">کافه گلخانه و قنادی دست‌ساز</span>
+</div>
+<!-- Hero Bottom Text Overlay -->
+<div class="absolute bottom-space-sm right-space-sm left-space-sm text-surface-container-lowest">
+<h1 class="text-headline-md font-headline-md font-bold text-surface-bright drop-shadow-sm">درباره کافه گل</h1>
+<p class="text-label-md font-label-md text-surface-variant/90">پناهگاه آرامش و رایحه طبیعت در قلب فرشته</p>
+</div>
+</div>
+<!-- Poetic Brand Story Card -->
+<div class="bg-surface-container-low/80 backdrop-blur-sm p-space-md rounded-2xl border border-secondary-container/40 shadow-sm relative overflow-hidden">
+<div class="absolute -left-6 -bottom-6 w-20 h-20 opacity-10 pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[80px]" data-icon="local_florist">local_florist</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface leading-relaxed text-justify">
+            «کافه گل، پناهگاهی سرسبز و آرام در دل شهر. جایی که هر قطره قهوه با اشتیاق عصاره‌گیری می‌شود و عطر شیرینی‌های تازه با شکوفه‌های بهاری در هم می‌میزد.»
+          </p>
+<div class="mt-space-sm flex items-center justify-end gap-2 text-primary">
+<span class="text-label-sm font-label-sm font-medium tracking-wider">سلسله اصالت و طعم</span>
+<span class="w-8 h-[1px] bg-primary/40"></span>
+<span class="material-symbols-outlined text-[14px]" data-icon="filter_vintage" style="font-variation-settings: 'FILL' 1;">filter_vintage</span>
+</div>
+</div>
+</section>
+<!-- Botanical Divider (Muguet Emblem) -->
+<div class="flex items-center justify-center gap-3 py-1 text-secondary-container">
+<span class="h-[1px] flex-1 bg-outline-variant/40"></span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="yard">yard</span>
+<span class="text-[10px] tracking-widest text-primary/70 font-mono">MUGUET</span>
+</div>
+<span class="h-[1px] flex-1 bg-outline-variant/40"></span>
+</div>
+<!-- Bento-style Feature Cards -->
+<section class="space-y-space-md">
+<!-- Card 1: Working Hours -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl border border-outline-variant/30 shadow-sm transition-all hover:border-primary/40 hover:shadow-md">
+<div class="flex items-center gap-3 mb-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ساعات پذیرایی و کاری</h2>
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-1 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                اکنون باز است • سرو قهوه و نوشیدنی
+              </span>
+</div>
+</div>
+<div class="space-y-2 mt-3 pt-3 border-t border-surface-container">
+<div class="flex items-center justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="calendar_today">calendar_today</span>
+                شنبه تا چهارشنبه:
+              </span>
+<span class="font-bold text-primary font-price-display text-price-display">۸:۰۰ صبح الی ۲۳:۰۰ شب</span>
+</div>
+<div class="flex items-center justify-between text-body-md font-body-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="weekend">weekend</span>
+                پنج‌شنبه و جمعه:
+              </span>
+<span class="font-bold text-primary font-price-display text-price-display">۸:۳۰ صبح الی ۲۴:۰۰ بامداد</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Address & Interactive Navigation -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-3 mb-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="distance">distance</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">نشانی و دسترسی</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">محیط اختصاصی عمارت باغ گل</p>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface mt-2 bg-surface-container-low/60 p-2.5 rounded-xl border border-outline-variant/20 leading-relaxed">
+            خیابان فرشته، بن‌بست نیلوفر، پلاک ۱۲، عمارت باغ گل
+          </p>
+<!-- Quick Navigation CTAs -->
+<div class="grid grid-cols-2 gap-2 mt-space-sm">
+<a class="flex items-center justify-center gap-1.5 bg-primary text-on-primary py-2.5 px-3 rounded-xl text-label-md font-label-md font-semibold hover:bg-primary-container active:scale-95 transition-all shadow-sm" href="https://neshan.org" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]" data-icon="explore">explore</span>
+<span>مسیریابی در نشان</span>
+</a>
+<a class="flex items-center justify-center gap-1.5 bg-secondary-container text-on-secondary-container py-2.5 px-3 rounded-xl text-label-md font-label-md font-semibold hover:bg-secondary-fixed active:scale-95 transition-all" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]" data-icon="map">map</span>
+<span>گوگل مپس</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Free High-Speed Wi-Fi -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="wifi">wifi</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">اینترنت رایگان مهمانان</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">فیبر نوری پرسرعت برای مطالعه و کار</span>
+</div>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm px-2 py-0.5 rounded-full font-bold">رایگان</span>
+</div>
+<div class="mt-space-md space-y-2 bg-surface-container-low/50 p-space-sm rounded-xl border border-outline-variant/20">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">نام شبکه (SSID):</span>
+<span class="font-mono font-semibold text-primary text-label-md font-label-md" dir="ltr">CafeGol_Guest</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-1.5 border-t border-outline-variant/20">
+<span class="text-on-surface-variant">رمز عبور:</span>
+<div class="flex items-center gap-2" dir="ltr">
+<code class="font-mono text-primary font-bold text-label-lg font-label-lg bg-surface-container px-2 py-0.5 rounded" id="wifi-pass">muguet2024</code>
+<button class="p-1 rounded-lg hover:bg-secondary-container text-primary transition-colors" onclick="navigator.clipboard.writeText('muguet2024'); alert('رمز وای‌فای با موفقیت کپی شد');" title="کپی رمز" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Contact & Socials -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-3 mb-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="contact_support">contact_support</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ارتباط و رزرو میز</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">پاسخگویی در تمامی ساعات کاری</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2 pt-2">
+<!-- Call Button -->
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-secondary-container/40 transition-colors" href="tel:02122005544">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="call">call</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">شماره تماس رزرو:</span>
+</div>
+<span class="font-price-display text-price-display font-bold text-primary" dir="ltr">۰۲۱-۲۲۰۰۵۵۴۴</span>
+</a>
+<!-- Instagram Button -->
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-secondary-container/40 transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="camera_alt">camera_alt</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">اینستاگرام کافه:</span>
+</div>
+<span class="font-mono text-label-md font-label-md font-semibold text-primary" dir="ltr">@cafegol.tehran</span>
+</a>
+</div>
+</div>
+<!-- Artisan Certificate & Amenities Tags -->
+<div class="bg-surface-container-low/40 rounded-2xl p-space-md border border-outline-variant/20 flex flex-wrap items-center justify-around gap-2 text-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="local_bar">local_bar</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">باریستاهای گواهی‌شده</span>
+</div>
+<div class="w-[1px] h-8 bg-outline-variant/40"></div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="bakery_dining">bakery_dining</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">قنادی روزانه</span>
+</div>
+<div class="w-[1px] h-8 bg-outline-variant/40"></div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="nature_people">nature_people</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">فضای باز باغ</span>
+</div>
+</div>
+</section>
+<!-- Signature botanical stamp -->
+<footer class="text-center pt-2 pb-4 text-on-surface-variant/70">
+<p class="text-label-sm font-label-sm">کافه و قنادی گل • تهران، فرشته</p>
+<p class="text-[10px] text-outline font-mono mt-0.5">Muguet Botanical Sanctum © 2024</p>
+</footer>
+</main>
+<!-- BottomNavBar (from Shared Components JSON: Active item is "درباره ما") -->
+<nav class="bg-surface-container/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-lg dark:shadow-none floating capsule rounded-full mb-space-md mx-margin fixed bottom-0 inset-x-0 z-50 flex justify-around items-center px-space-sm py-space-xs max-w-lg mx-auto pb-safe">
+<!-- Tab 1: منو -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-md py-space-xs hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-inverse-surface active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_cafe">local_cafe</span>
+<span class="text-label-sm font-label-sm mt-0.5">منو</span>
+</a>
+<!-- Tab 2: جستجو -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-md py-space-xs hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-inverse-surface active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+<span class="text-label-sm font-label-sm mt-0.5">جستجو</span>
+</a>
+<!-- Tab 3: سفارش‌ها -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-md py-space-xs hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-inverse-surface active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-0.5">سفارش‌ها</span>
+</a>
+<!-- Tab 4: درباره ما (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-primary dark:text-on-secondary rounded-full px-space-md py-space-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">درباره ما</span>
+</a>
+</nav>
+</div>
+<script>
+    // Lightweight toggle for day/night aesthetic demo
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      toggleBtn.querySelector('span:first-child').innerText = isDark ? 'dark_mode' : 'light_mode';
+      toggleBtn.querySelector('span:last-child').innerText = isDark ? 'شب' : 'روز';
+    });
+  </script>
+</body></html>

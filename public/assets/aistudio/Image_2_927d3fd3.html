@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="h-full dark" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>کافه گل | Cafe Gol</title>
+<!-- Persian Typography (Vazirmatn) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "surface-container-high": "#2c3422",
+            "inverse-surface": "#f6fce3",
+            "on-secondary": "#283413",
+            "surface-tint": "#b5c47e",
+            "on-secondary-fixed-variant": "#404b29",
+            "on-primary-fixed-variant": "#3f4c10",
+            "primary-fixed": "#d9ea9e",
+            "on-tertiary-fixed": "#211b08",
+            "on-tertiary": "#352e1a",
+            "background": "#1B2016",
+            "on-secondary-fixed": "#161e03",
+            "primary": "#B5C47E",
+            "on-secondary-container": "#dce8ba",
+            "surface-container-highest": "#333d28",
+            "inverse-primary": "#536124",
+            "on-background": "#F2EDDC",
+            "surface-variant": "#333d28",
+            "surface-container": "#262D1E",
+            "primary-container": "#3e4a1a",
+            "tertiary": "#d3c5a8",
+            "inverse-on-surface": "#1B2016",
+            "surface-container-low": "#21271a",
+            "tertiary-fixed-dim": "#d3c5a8",
+            "on-primary": "#1B2016",
+            "surface": "#1B2016",
+            "on-surface": "#F2EDDC",
+            "tertiary-fixed": "#efe1c3",
+            "on-error": "#690005",
+            "on-tertiary-container": "#efe1c3",
+            "error-container": "#93000a",
+            "on-surface-variant": "#B8C5A5",
+            "primary-fixed-dim": "#bdce85",
+            "secondary-container": "#3d4727",
+            "surface-dim": "#151a11",
+            "on-primary-container": "#d9ea9e",
+            "on-tertiary-fixed-variant": "#4f4630",
+            "surface-bright": "#2c3422",
+            "secondary-fixed-dim": "#c0cc9f",
+            "secondary": "#B5C47E",
+            "on-primary-fixed": "#171e00",
+            "secondary-fixed": "#dce8ba",
+            "outline-variant": "rgba(181, 196, 126, 0.14)",
+            "tertiary-container": "#4a422d",
+            "outline": "#7e8869",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#141810"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Vazirmatn"],
+            "price-display": ["Vazirmatn"],
+            "body-lg": ["Vazirmatn"],
+            "label-md": ["Vazirmatn"],
+            "body-md": ["Vazirmatn"],
+            "display-lg": ["Vazirmatn"],
+            "headline-sm": ["Vazirmatn"],
+            "headline-lg": ["Vazirmatn"],
+            "label-lg": ["Vazirmatn"],
+            "display-lg-mobile": ["Vazirmatn"],
+            "headline-md": ["Vazirmatn"],
+            "label-sm": ["Vazirmatn"],
+            "watermark": ["Playfair Display", "serif"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "price-display": ["18px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "display-lg": ["32px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600" }],
+            "display-lg-mobile": ["26px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "30px", "letterSpacing": "0", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .arch-mask {
+      border-radius: 28px 28px 16px 16px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#1B2016] font-body-md text-[#F2EDDC] antialiased selection:bg-[#B5C47E] selection:text-[#1B2016] min-h-screen relative flex justify-center pb-28">
+<!-- Mobile Viewport Constraint (390px Max) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#1B2016] relative flex flex-col overflow-x-hidden shadow-2xl border-x border-[#343D2A]/40">
+<!-- Botanical Tone-on-tone Line-art Overlay with 'lili' filigree (Subtle pale moss at 7% opacity) -->
+<div aria-hidden="true" class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.07] select-none text-[#B5C47E]">
+<div class="absolute -top-12 -right-16 w-80 h-80 rounded-full border border-current"></div>
+<div class="absolute top-48 -left-20 w-64 h-64 rounded-full border border-current"></div>
+<div class="absolute top-[420px] right-4 font-watermark italic text-display-lg text-current rotate-12">lili</div>
+<div class="absolute top-[880px] -left-2 font-watermark italic text-display-lg text-current -rotate-6">lili</div>
+<div class="absolute bottom-40 right-10 font-watermark italic text-headline-lg text-current rotate-45">muguet</div>
+<svg class="absolute top-20 right-8 w-44 h-44 text-current stroke-current fill-none stroke-[0.8]" viewbox="0 0 100 100">
+<path d="M 20,95 Q 35,45 65,15 Q 75,5 82,10"></path>
+<circle cx="50" cy="40" r="4"></circle>
+<circle cx="62" cy="28" r="3.5"></circle>
+<circle cx="72" cy="18" r="3"></circle>
+<path d="M 46,41 C 44,46 56,46 54,41"></path>
+<path d="M 58,29 C 56,34 68,34 66,29"></path>
+</svg>
+</div>
+<!-- SHARED COMPONENT: TopAppBar (Botanical Dark Header) -->
+<header class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-margin py-space-sm h-14 w-full max-w-[390px] mx-auto bg-[#1B2016]/90 backdrop-blur-md border-b border-[#343D2A]/60 shadow-sm transition-all">
+<div class="flex items-center gap-space-xs">
+<button aria-label="منوی گیاهی" class="w-9 h-9 rounded-full flex items-center justify-center text-[#B5C47E] hover:bg-[#262D1E] active:scale-95 transition-transform duration-200" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="spa">spa</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-[#F2EDDC] tracking-tight">کافه گل</span>
+</div>
+<!-- Action Cluster: Theme Switch & Cart/Notifications -->
+<div class="flex items-center gap-space-xs">
+<!-- Botanical Theme Switch Toggle (Active Dark State) -->
+<button aria-label="تغییر حالت شب و روز" class="w-14 h-7 rounded-full bg-[#262D1E] border border-[#343D2A] p-0.5 flex items-center justify-between px-1 relative transition-colors duration-300" id="themeToggle" type="button">
+<span class="text-[12px] z-10 text-[#7E8869]">☀️</span>
+<span class="text-[11px] z-10 text-[#B5C47E]">🌙</span>
+<div class="absolute left-1 top-0.5 w-6 h-6 rounded-full bg-[#343D2A] shadow-sm transition-transform duration-300 translate-x-[-26px]" id="toggleKnob"></div>
+</button>
+<!-- Notification Shortcut -->
+<button aria-label="اعلان‌ها" class="w-9 h-9 rounded-full flex items-center justify-center text-[#B8C5A5] hover:bg-[#262D1E] hover:text-[#B5C47E] active:scale-95 transition-all duration-200 relative" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 left-2 w-1.5 h-1.5 bg-[#B5C47E] rounded-full ring-2 ring-[#1B2016]"></span>
+</button>
+</div>
+</header>
+<!-- Canvas Body Content (Offset for Sticky Header) -->
+<div class="relative z-10 pt-16 px-margin flex flex-col space-y-space-lg">
+<!-- Hero Welcome Greeting -->
+<section class="mt-space-sm flex flex-col space-y-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#262D1E] border border-[#343D2A] w-fit text-[#B5C47E]">
+<span class="material-symbols-outlined text-[14px]" data-icon="yard">yard</span>
+<span class="font-label-sm text-label-sm font-medium">گلخانه و آرامش صبحگاهی</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile font-bold text-[#F2EDDC] leading-tight">
+          به کافه گل خوش آمدید
+        </h1>
+<p class="font-body-md text-body-md text-[#B8C5A5]">
+          عطر خوش قهوه تازه در میان شکوفه‌های موگه
+        </p>
+<!-- Search Bar with Horticultural Softness (Dark Mode) -->
+<div class="pt-space-xs">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute right-3.5 text-[#7E8869] text-[20px] pointer-events-none" data-icon="search">search</span>
+<input class="w-full bg-[#262D1E] border border-[#343D2A] rounded-full py-2.5 pr-10 pl-10 font-body-sm text-body-sm text-[#F2EDDC] placeholder:text-[#7E8869] focus:outline-none focus:ring-2 focus:ring-[#B5C47E]/30 focus:border-[#B5C47E] transition-all duration-200 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.3)]" placeholder="جستجو در نوشیدنی‌ها، کیک‌ها و میان‌وعده‌ها..." type="text"/>
+<button aria-label="فیلترها" class="absolute left-2.5 w-7 h-7 rounded-full bg-[#1B2016] border border-[#343D2A] flex items-center justify-center text-[#B5C47E] shadow-sm hover:bg-[#2E3823]" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Category Chips (Horizontal Scrollable Rail) -->
+<section class="overflow-x-auto no-scrollbar -mx-margin px-margin">
+<div class="flex items-center gap-space-xs min-w-max pb-1">
+<!-- Active Chip: Pastel Olive Pill with Dark Text -->
+<button class="flex items-center gap-1.5 bg-[#B5C47E] text-[#1B2016] px-space-md py-1.5 rounded-full font-label-md text-label-md font-semibold shadow-sm active:scale-95 transition-all" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B2016]"></span>
+<span>همه</span>
+</button>
+<!-- Inactive Category Chips: Dark Moss with Border -->
+<button class="bg-[#262D1E] border border-[#343D2A] text-[#D4CEBE] px-space-md py-1.5 rounded-full font-label-md text-label-md hover:border-[#B5C47E]/50 hover:text-[#F2EDDC] active:scale-95 transition-all" type="button">
+            قهوه تخصصی
+          </button>
+<button class="bg-[#262D1E] border border-[#343D2A] text-[#D4CEBE] px-space-md py-1.5 rounded-full font-label-md text-label-md hover:border-[#B5C47E]/50 hover:text-[#F2EDDC] active:scale-95 transition-all" type="button">
+            نوشیدنی سرد
+          </button>
+<button class="bg-[#262D1E] border border-[#343D2A] text-[#D4CEBE] px-space-md py-1.5 rounded-full font-label-md text-label-md hover:border-[#B5C47E]/50 hover:text-[#F2EDDC] active:scale-95 transition-all" type="button">
+            چای و دمنوش
+          </button>
+<button class="bg-[#262D1E] border border-[#343D2A] text-[#D4CEBE] px-space-md py-1.5 rounded-full font-label-md text-label-md hover:border-[#B5C47E]/50 hover:text-[#F2EDDC] active:scale-95 transition-all" type="button">
+            کیک و دسر
+          </button>
+<button class="bg-[#262D1E] border border-[#343D2A] text-[#D4CEBE] px-space-md py-1.5 rounded-full font-label-md text-label-md hover:border-[#B5C47E]/50 hover:text-[#F2EDDC] active:scale-95 transition-all" type="button">
+            صبحانه و برانچ
+          </button>
+</div>
+</section>
+<!-- Featured Hero Card: "پیشنهاد باریستا" -->
+<section class="flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#B5C47E] text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-[#F2EDDC]">پیشنهاد باریستا</h2>
+</div>
+<span class="font-label-sm text-label-sm text-[#B5C47E] font-medium cursor-pointer hover:underline">مشاهده همه</span>
+</div>
+<!-- Hero Bento Card -->
+<article class="bg-[#262D1E] rounded-2xl p-3.5 border border-[#343D2A] shadow-[0_4px_24px_-3px_rgba(0,0,0,0.4)] flex flex-col space-y-3 relative overflow-hidden group">
+<!-- Image with Arch Mask -->
+<div class="relative w-full h-44 overflow-hidden rounded-xl bg-[#1B2016]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A delicate artisanal vanilla blossom latte in a warm textured handmade ceramic cup sitting on a pale cream linen tablecloth, garnished with subtle dried edible flower petals and cardamom powder, soft warm morning light diffusing through conservatory greenhouse windows, soothing sage green and warm cream aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxVtCeDH9-7sDBzf2p3QIBiw4BeDXYhSKAfO7tTXHZFvkY8h_bpqm1zCZ3sKRwsEBczJ70_YhAlqJvkyzTrwOz5k4S0-NMRg5I5v7Y7ewA42SgzlfF3Mn3BZttwXeTPsbBlEPpY1q_qPYN5mnIUQM3YN_SjmFh4fXUdTSfc2DoYRPWxvN3v5bVZ1NpVpLl898QKc1yWemVwNk19X_XbIP1vNCjO6FMkO-W9TCpkyrgde4hwTRilmzMFg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+<!-- Badges -->
+<div class="absolute top-2.5 right-2.5 flex items-center gap-1 bg-[#1B2016]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[#B5C47E] border border-[#343D2A]">
+<span class="material-symbols-outlined text-[13px]" data-icon="local_florist">local_florist</span>
+<span class="font-label-sm text-label-sm font-semibold">پیشنهاد باریستا</span>
+</div>
+<div class="absolute bottom-2.5 right-3 text-[#F2EDDC] drop-shadow">
+<span class="font-label-sm text-label-sm block text-[#B8C5A5]">دم‌آوری تخصصی</span>
+<span class="font-headline-sm text-headline-sm font-bold text-[#F2EDDC]">لاته شکوفه وانیل</span>
+</div>
+</div>
+<!-- Description & Details -->
+<p class="font-body-sm text-body-sm text-[#B8C5A5] line-clamp-2 leading-relaxed">
+            ترکیب اسپرسو تک‌خاستگاه، شیر ابریشمی بخارداده‌شده با عصاره طبیعی وانیل ماداگاسکار و لمس معطر هل سبز به همراه غنچه‌های خوراکی.
+          </p>
+<!-- Price & Action Stepper -->
+<div class="flex items-center justify-between pt-1 border-t border-[#343D2A]">
+<div>
+<span class="font-label-sm text-label-sm text-[#7E8869] block">قیمت ویژه:</span>
+<span class="font-price-display text-price-display text-[#B5C47E]">۹۸٬۰۰۰ <span class="font-body-sm text-body-sm font-normal text-[#D4CEBE]">تومان</span></span>
+</div>
+<!-- Quick Add Button -->
+<button class="flex items-center gap-1.5 bg-[#B5C47E] text-[#1B2016] hover:bg-[#c6d491] px-4 py-2 rounded-full font-label-md text-label-md font-semibold active:scale-95 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>افزودن</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Botanical Divider: Muguet Stalk Line -->
+<div aria-hidden="true" class="flex items-center justify-center gap-2 py-1 select-none">
+<div class="h-[1px] flex-1 bg-[#343D2A]"></div>
+<div class="flex items-center gap-1 text-[#B5C47E]/60">
+<span class="material-symbols-outlined text-[16px]" data-icon="nature">nature</span>
+</div>
+<div class="h-[1px] flex-1 bg-[#343D2A]"></div>
+</div>
+<!-- Bestsellers Section ("پرفروش‌ها") -->
+<section class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-[#F2EDDC]">محبوب‌ترین‌های کافه</h2>
+<p class="font-body-sm text-body-sm text-[#7E8869]">طعم‌های برگزیده همراهان همیشگی ما</p>
+</div>
+<span class="font-label-sm text-label-sm text-[#B5C47E] font-medium cursor-pointer hover:underline">دیدن منو</span>
+</div>
+<!-- Bestsellers Grid / Cards -->
+<div class="flex flex-col space-y-3">
+<!-- Item 1: اسپرسو دوبل کنیا -->
+<article class="bg-[#262D1E] rounded-xl p-3 border border-[#343D2A] flex items-center justify-between gap-3 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.3)] hover:border-[#B5C47E]/40 transition-colors">
+<!-- Left Thumbnail -->
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-[#1B2016] flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Rich double espresso in a bespoke dark olive minimalist ceramic cup with golden velvety crema on top, surrounded by raw coffee beans on rustic aged sandstone surface, warm botanical lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3B7LBDI-6C_2c9fY8oGpMMuiaa42TxB4DD_QwfIpk811xdnnEWoe7EM3qbXPaH9KmQxxW1Q40WL7VJ1ibrjjd9Fg09YNrBWut3AC7AVPdhW9mbuT74q8UT1jszGFbzY7htZn7u_paGbRCOw-kpKIH8KAwCnwc4u-MrqyZX78jlpilV92Td8Nr1KjbyfNnnOitkzItBrq-MdGl8WUIrho2Jn2nbb_58QGKqALuRg_s063lnduaAkgs6w"/>
+<span class="absolute top-1 right-1 bg-[#B5C47E] text-[#1B2016] text-[9px] font-label-sm font-bold px-1.5 py-0.5 rounded-full">پرفروش</span>
+</div>
+<!-- Middle Info -->
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="font-headline-sm text-[15px] font-bold text-[#F2EDDC] truncate">اسپرسو دوبل کنیا</h3>
+<p class="font-body-sm text-[11px] text-[#7E8869] line-clamp-1 mt-0.5">اسیدیته مرکباتی، ته مزه شکوفه یاس و شاه‌توت</p>
+<div class="mt-2">
+<span class="font-price-display text-[15px] text-[#B5C47E]">۸۵٬۰۰۰</span>
+<span class="font-body-sm text-[11px] text-[#B8C5A5]">تومان</span>
+</div>
+</div>
+<!-- Quick Add Circle -->
+<button aria-label="افزودن اسپرسو دوبل کنیا" class="w-8 h-8 rounded-full bg-[#343D2A] text-[#B5C47E] flex items-center justify-center hover:bg-[#B5C47E] hover:text-[#1B2016] active:scale-90 transition-all flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</article>
+<!-- Item 2: کیک لیمو و رزماری -->
+<article class="bg-[#262D1E] rounded-xl p-3 border border-[#343D2A] flex items-center justify-between gap-3 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.3)] hover:border-[#B5C47E]/40 transition-colors">
+<!-- Left Thumbnail -->
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-[#1B2016] flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A slice of artisanal moist lemon and fresh rosemary tea cake drizzled with glazed botanical syrup, garnished with a sprig of fresh rosemary and dried citrus slice on light stoneware plate, soft daytime conservatory lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG3qawBMVO44rhVR2XNvH12-DzdvwtD2GRQLDioMB4ypyoHD12f0tckkj0ay_Zr64Hi6nuc8jTYcX7s8htmyUody5H3oZmsO7QnzLWVqWQzZ1laN_g9A8DkrmzCKOuzKmM-fyr-UkYW7HCZfB2icynqMgGdOSHyY1nHzF2_Yup_9LB9Z5D2IGfqhIjPx_J--UIaILYY7OFEL72328wtxzzec4VQVAI-DQJdjpr-dBgWD8u4UHntI2uVA"/>
+<span class="absolute top-1 right-1 bg-[#3E4A1A] text-[#B5C47E] border border-[#B5C47E]/30 text-[9px] font-label-sm font-semibold px-1.5 py-0.5 rounded-full">گیاهی</span>
+</div>
+<!-- Middle Info -->
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="font-headline-sm text-[15px] font-bold text-[#F2EDDC] truncate">کیک لیمو و رزماری</h3>
+<p class="font-body-sm text-[11px] text-[#7E8869] line-clamp-1 mt-0.5">پخت روز با آرد بادام و شربت رزماری تازه</p>
+<div class="mt-2">
+<span class="font-price-display text-[15px] text-[#B5C47E]">۱۱۵٬۰۰۰</span>
+<span class="font-body-sm text-[11px] text-[#B8C5A5]">تومان</span>
+</div>
+</div>
+<!-- Quantity Stepper Example -->
+<div class="flex items-center bg-[#1B2016] rounded-full p-0.5 border border-[#343D2A] flex-shrink-0">
+<button aria-label="کاهش" class="w-6 h-6 rounded-full flex items-center justify-center text-[#B5C47E] hover:bg-[#262D1E] active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="remove">remove</span>
+</button>
+<span class="font-label-md text-label-md px-1.5 text-[#F2EDDC] font-semibold">۱</span>
+<button aria-label="افزایش" class="w-6 h-6 rounded-full bg-[#B5C47E] text-[#1B2016] flex items-center justify-center active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Item 3: آیس ماچا لاته پسته -->
+<article class="bg-[#262D1E] rounded-xl p-3 border border-[#343D2A] flex items-center justify-between gap-3 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.3)] hover:border-[#B5C47E]/40 transition-colors">
+<!-- Left Thumbnail -->
+<div class="w-20 h-20 rounded-xl overflow-hidden bg-[#1B2016] flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Layered iced matcha latte with fresh pistachio cream in a tall rippled glass tumbler, visible separation of pure ceremonial matcha and rich pale green pistachio milk with crushed pistachios on top, bright soft morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBE7WG_QP2KL4uY3bSbiVxOWU183NXvw5oF6GQSngb3-J7h47wxcCHZ3V0xTPcqw-fMjhlqWARh_DkuEbP_pUjL9vu8HtpzYzQwnqZ9fEnB8154JG18RKOIu8y3SwI1kkZyUyCAerht5S2dTAU-oiTM9TAy1CNACEl4uNZfMi_X3jh5BYJt0toSoVsRx1ObsPaua7u3zcBJEi-oOgxPtQKochleGzU1rgxpV39Im1ZmXixjqXKg-AKow"/>
+<span class="absolute top-1 right-1 bg-[#4A422D] text-[#EFE1C3] border border-[#D3C5A8]/30 text-[9px] font-label-sm font-semibold px-1.5 py-0.5 rounded-full">جدید</span>
+</div>
+<!-- Middle Info -->
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="font-headline-sm text-[15px] font-bold text-[#F2EDDC] truncate">آیس ماچا لاته پسته</h3>
+<p class="font-body-sm text-[11px] text-[#7E8869] line-clamp-1 mt-0.5">ماچای تشریفاتی اودجی همراه با کرم پسته رفسنجان</p>
+<div class="mt-2">
+<span class="font-price-display text-[15px] text-[#B5C47E]">۱۲۸٬۰۰۰</span>
+<span class="font-body-sm text-[11px] text-[#B8C5A5]">تومان</span>
+</div>
+</div>
+<!-- Quick Add Circle -->
+<button aria-label="افزودن آیس ماچا لاته پسته" class="w-8 h-8 rounded-full bg-[#343D2A] text-[#B5C47E] flex items-center justify-center hover:bg-[#B5C47E] hover:text-[#1B2016] active:scale-90 transition-all flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</article>
+</div>
+</section>
+<!-- Conservatory Ambiance Banner (Dark Surface with Pale Accent) -->
+<section class="bg-[#262D1E] rounded-2xl p-4 border border-[#343D2A] relative overflow-hidden">
+<div class="relative z-10 flex flex-col space-y-1.5">
+<div class="flex items-center gap-1.5 text-[#B5C47E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="nest_eco_leaf">nest_eco_leaf</span>
+<span class="font-label-sm text-label-sm font-semibold">پایداری و احترام به خاک</span>
+</div>
+<h4 class="font-headline-sm text-[16px] font-bold text-[#F2EDDC]">تمام فنجان‌های ما قابل بازگشت به طبیعت هستند</h4>
+<p class="font-body-sm text-body-sm text-[#B8C5A5]">با آوردن ماگ شخصی خود در هر سفارش ۱۰٪ تخفیف همراهی دریافت کنید.</p>
+</div>
+<div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-[#B5C47E]/10 pointer-events-none"></div>
+</section>
+</div>
+<!-- Floating Basket / Cart Bar (Matching SCREEN_2: Dark Moss with Glowing Pastel Olive) -->
+<aside class="fixed bottom-20 inset-x-0 z-40 px-margin max-w-[390px] mx-auto pointer-events-none">
+<div class="pointer-events-auto bg-[#262D1E] text-[#F2EDDC] border border-[#343D2A] rounded-full py-2.5 px-4 shadow-[0_10px_30px_-4px_rgba(0,0,0,0.6)] flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#B5C47E] flex items-center justify-center text-[#1B2016] font-bold text-[12px]">
+            ۳
+          </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-[#F2EDDC]">سبد خرید شما (۳ قلم)</span>
+<span class="font-body-sm text-[10px] text-[#B8C5A5]">تحویل در گلخانه اصلی</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-price-display text-[15px] text-[#B5C47E]">۲۹۸٬۰۰۰ <span class="text-[11px] font-normal text-[#D4CEBE]">تومان</span></span>
+<span class="material-symbols-outlined text-[18px] text-[#B5C47E]" data-icon="arrow_back">arrow_back</span>
+</div>
+</div>
+</aside>
+<!-- SHARED COMPONENT: BottomNavBar (Botanical Deep Olive Dark Shell) -->
+<nav class="fixed bottom-0 inset-x-0 z-50 flex justify-around items-center px-space-sm py-space-xs max-w-lg mx-auto pb-safe">
+<div class="w-full flex justify-around items-center bg-[#262D1E]/95 backdrop-blur-md shadow-2xl rounded-full mb-space-md mx-margin p-1 border border-[#343D2A]">
+<!-- Tab 1: منو (Active Destination) -->
+<a class="flex flex-col items-center justify-center bg-[#343D2A] text-[#B5C47E] rounded-full px-space-md py-space-xs active:scale-95 transition-all duration-200" href="#menu">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_cafe" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">منو</span>
+</a>
+<!-- Tab 2: جستجو (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#B8C5A5] px-space-md py-space-xs hover:text-[#B5C47E] hover:bg-[#343D2A]/60 rounded-full active:scale-95 transition-all duration-200" href="#search">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm mt-0.5">جستجو</span>
+</a>
+<!-- Tab 3: سفارش‌ها (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#B8C5A5] px-space-md py-space-xs hover:text-[#B5C47E] hover:bg-[#343D2A]/60 rounded-full active:scale-95 transition-all duration-200" href="#orders">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-0.5">سفارش‌ها</span>
+</a>
+<!-- Tab 4: درباره ما (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#B8C5A5] px-space-md py-space-xs hover:text-[#B5C47E] hover:bg-[#343D2A]/60 rounded-full active:scale-95 transition-all duration-200" href="#about">
+<span class="material-symbols-outlined text-[20px]" data-icon="info">info</span>
+<span class="font-label-sm text-label-sm mt-0.5">درباره ما</span>
+</a>
+</div>
+</nav>
+</main>
+<!-- Interactive Micro-Interactions Script -->
+<script>
+    // Organic Day/Night Theme Switch Logic (Default Dark)
+    const themeToggle = document.getElementById('themeToggle');
+    const toggleKnob = document.getElementById('toggleKnob');
+    let isDark = true;
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        toggleKnob.style.transform = 'translateX(-26px)';
+      } else {
+        document.documentElement.classList.remove('dark');
+        toggleKnob.style.transform = 'translateX(0px)';
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct web access to sensitive configuration and internal directories on shared hosting
+    RewriteRule ^(\.env|composer\.json|composer\.lock|artisan|storage/.*|vendor/.*|database/.*|tests/.*)$ - [F,L,NC]
+
+    # Route all requests cleanly to the /public directory when DocumentRoot cannot be changed in cPanel/DirectAdmin
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+Options -Indexes

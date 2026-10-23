@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>سبد خرید و ثبت سفارش | کافه گل</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Vazirmatn Persian Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#dce8ba",
+            "on-secondary-fixed": "#161e03",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#edf4da",
+            "on-tertiary-fixed": "#211b08",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dfe5cc",
+            "on-tertiary-container": "#fffaf8",
+            "secondary-fixed-dim": "#c0cc9f",
+            "secondary-container": "#d9e5b7",
+            "on-background": "#181d0e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#dfe5cc",
+            "outline": "#76786a",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#46483b",
+            "inverse-primary": "#bdce85",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2d3322",
+            "on-surface": "#181d0e",
+            "tertiary-fixed": "#efe1c3",
+            "primary-container": "#6b7a3a",
+            "surface-container": "#eaf1d8",
+            "primary": "#536124",
+            "background": "#f6fce3",
+            "secondary": "#58633e",
+            "tertiary": "#645a43",
+            "on-secondary-container": "#5c6742",
+            "on-primary-container": "#f9ffd9",
+            "surface-bright": "#f6fce3",
+            "primary-fixed-dim": "#bdce85",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#171e00",
+            "surface-dim": "#d6ddc4",
+            "primary-fixed": "#d9ea9e",
+            "surface-container-low": "#f0f7dd",
+            "on-secondary-fixed-variant": "#404b29",
+            "surface": "#f6fce3",
+            "surface-container-high": "#e5ebd2",
+            "surface-tint": "#566427",
+            "outline-variant": "#c7c8b7",
+            "tertiary-container": "#7d735a",
+            "on-tertiary-fixed-variant": "#4f4630",
+            "on-primary-fixed-variant": "#3f4c10",
+            "tertiary-fixed-dim": "#d3c5a8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Vazirmatn"],
+            "price-display": ["Vazirmatn"],
+            "body-lg": ["Vazirmatn"],
+            "label-md": ["Vazirmatn"],
+            "body-md": ["Vazirmatn"],
+            "display-lg": ["Vazirmatn"],
+            "headline-sm": ["Vazirmatn"],
+            "headline-lg": ["Vazirmatn"],
+            "label-lg": ["Vazirmatn"],
+            "display-lg-mobile": ["Vazirmatn"],
+            "headline-md": ["Vazirmatn"],
+            "label-sm": ["Vazirmatn"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "price-display": ["18px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "0", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+            "display-lg": ["32px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "34px", "letterSpacing": "0", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600"}],
+            "display-lg-mobile": ["26px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "30px", "letterSpacing": "0", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Botanical Subtle Accents */
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #f6fce3;
+      color: #181d0e;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .botanical-pattern {
+      background-color: #f6fce3;
+      background-image: radial-gradient(#6b7a3a 0.75px, transparent 0.75px), radial-gradient(#dce8ba 0.75px, #f6fce3 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      background-opacity: 0.15;
+    }
+
+    .leaf-mask {
+      border-radius: 20px 20px 12px 12px;
+    }
+
+    /* Botanical micro filigree scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f0f7dd;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c0cc9f;
+      border-radius: 4px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container min-h-screen relative flex justify-center selection:text-primary">
+<!-- Mobile Viewport Container (390px Max Standard) -->
+<main class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-36 overflow-x-hidden shadow-2xl">
+<!-- Top App Bar (Shared Component Contract: Headline: "کافه گل", leading_icon: "spa", trailing_icon: "notifications") -->
+<header class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-margin py-space-sm h-14 w-full max-w-[390px] mx-auto bg-surface/90 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-space-xs">
+<button aria-label="برند کافه گل" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-transform duration-200" type="button">
+<span class="material-symbols-outlined text-[22px]">spa</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary">کافه گل</span>
+</div>
+<!-- Center Table Indicator Pill -->
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container/70 border border-outline-variant/30 text-on-secondary-container">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">table_restaurant</span>
+<span class="text-label-sm font-label-sm font-semibold">میز ۴</span>
+</div>
+<div class="flex items-center gap-1">
+<!-- Theme Switch Toggle (Day / Night Botanical Mood) -->
+<button aria-label="تغییر حالت شب و روز" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container active:scale-95 transition-all" id="theme-toggle" type="button">
+<span class="material-symbols-outlined text-[20px]" id="theme-icon">light_mode</span>
+</button>
+<!-- Trailing Action -->
+<button aria-label="اعلان‌ها" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-transform duration-200" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+</button>
+</div>
+</header>
+<!-- Sub-Header Context & Status Pill Bar -->
+<div class="pt-16 px-margin pb-2">
+<div class="flex items-center justify-between mt-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<h1 class="text-headline-md font-headline-md text-primary">سبد سفارش کافه گل</h1>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant bg-surface-container px-2.5 py-0.5 rounded-full">۳ قلم منتخب</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">عطر دست‌چین شکوفه‌ها و دم‌آوری با طعم بهشت کوچک گل‌ها</p>
+</div>
+<!-- Botanical Divider with Muguet Tendril Motif -->
+<div class="px-margin my-2 flex items-center justify-center gap-2 text-outline-variant">
+<span class="h-px bg-outline-variant/60 flex-1"></span>
+<span class="material-symbols-outlined text-primary/70 text-[18px]">local_florist</span>
+<span class="h-px bg-outline-variant/60 flex-1"></span>
+</div>
+<!-- Dining Preference Switch (سرو در کافه / بیرون‌بر) -->
+<section aria-label="انتخاب نوع سرو" class="px-margin mb-4">
+<div class="p-1 bg-surface-container-high rounded-full flex items-center justify-between relative shadow-inner">
+<!-- Active Pill Tab 1 -->
+<button class="flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 bg-surface-container-lowest text-primary shadow-sm font-label-lg text-label-lg transition-all duration-200" id="btn-dine-in" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">table_restaurant</span>
+<span>سرو در کافه (میز)</span>
+</button>
+<!-- Inactive Pill Tab 2 -->
+<button class="flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-all duration-200" id="btn-takeaway" type="button">
+<span class="material-symbols-outlined text-[18px]">takeout_dining</span>
+<span>سفارش بیرون‌بر (Takeaway)</span>
+</button>
+</div>
+</section>
+<!-- Table Selector Card -->
+<section class="px-margin mb-5" id="table-selector-section">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-[20px] p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">deck</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm text-secondary">محل استقرار</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">میز شماره ۴ - کنار پنجره حیاط</div>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-label-md font-label-md text-primary bg-surface-container-low px-2.5 py-1.5 rounded-full hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span>تغییر</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Cart Items Section -->
+<section aria-label="اقلام سبد خرید" class="px-margin mb-6">
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-label-lg font-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">shopping_bag</span>
+<span>لیست نوشیدنی و شیرینی‌ها</span>
+</h2>
+<span class="text-label-sm font-label-sm text-secondary">به‌روزرسانی خودکار</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Item 1: لاته شکوفه وانیل و پسته -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[20px] p-3.5 shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex gap-3">
+<!-- Image Frame with leaf arch mask -->
+<div class="w-20 h-20 rounded-[16px] overflow-hidden bg-surface-container shrink-0 border border-secondary-container/40 relative">
+<img class="w-full h-full object-cover" data-alt="An artisanal pistachio blossom cafe latte presented in a ceramic sage green cup with delicate foam art shaped like a lily petal. The table surface is aged warm ivory marble dusted with crushed Persian pistachios and wild dried edible petals in gentle natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVxa9ynhFpUJyuCR4U3eUIB5loyNGw1hW7SzMxCO3IvymNIzbEuJ5uKa5-NGEqOeRJ_nfTGQmubf53PvISLM50XR2r3GtflSVqoA-Yi4jYA68WL1mC8yVq9kvQc38r_sB5KJpRyi6FsmZj02-kjzEavfJNwbCg-N_YOeKs8SEQwWzHk998of759zjLH4xalcX9LeELaLdOcq5gtmecrBsJ-GBbq_TT23_Tz5Ds_n-unzGs1_nyd7DFYw"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest/90 backdrop-blur-xs text-primary rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px] block">eco</span>
+</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-body-md font-body-md font-bold text-on-surface leading-tight">لاته شکوفه وانیل و پسته</h3>
+<button aria-label="حذف لاته" class="text-outline hover:text-error transition-colors p-1 -mt-1 -ml-1" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">سایز متوسط، با شیر بادام و عطر بهارنارنج</p>
+</div>
+<!-- Price & Stepper Row -->
+<div class="flex items-center justify-between mt-2 pt-1 border-t border-surface-container">
+<div class="text-price-display font-price-display text-primary">
+                  ۱۱۳٬۰۰۰ <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">تومان</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Edit Customization Button -->
+<button aria-label="ویرایش مشخصات لاته" class="text-label-sm font-label-sm text-secondary hover:text-primary p-1 flex items-center" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+</button>
+<!-- Quantity Stepper Pill -->
+<div class="bg-secondary-container/60 rounded-full px-2 py-1 flex items-center gap-2 border border-outline-variant/30">
+<button aria-label="کاهش تعداد لاته" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="text-label-md font-label-md font-bold text-on-surface px-1">۱</span>
+<button aria-label="افزایش تعداد لاته" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 2: تارت گلابی و بادام -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[20px] p-3.5 shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex gap-3">
+<!-- Image Frame -->
+<div class="w-20 h-20 rounded-[16px] overflow-hidden bg-surface-container shrink-0 border border-secondary-container/40 relative">
+<img class="w-full h-full object-cover" data-alt="A freshly baked French pear and almond frangipane tart slice served on a pale ceramic plate. Caramelized pear slices glisten under soft cafe greenhouse sunlight with a gentle dusting of cardamom powder and fresh rosemary sprig." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkgot5NocoMw71ap1SKLKr7SmguEWtPPLNZu-Hg9tinE2bvh3XcPbh2W1BhiLody_L80pUWMCJO1AJu-jdDcIK2B-wfb4IwHHSO3w7xQGb3e_9stSrwBul7Qv5ZDd_B112UmC-juMJw37ZH6ffoO3b-dAJ28kvvZjkcg-eLpzONw_oeyFYahsHdBi9qUPNBRq1WXQy8lrN40nDU_Mplw1yE1gnF7zEpgwljybEjj-yfSuUbqIv_FC1GQ"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest/90 backdrop-blur-xs text-secondary rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px] block">bakery_dining</span>
+</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-body-md font-body-md font-bold text-on-surface leading-tight">تارت گلابی و بادام</h3>
+<button aria-label="حذف تارت" class="text-outline hover:text-error transition-colors p-1 -mt-1 -ml-1" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">شیرینی دست‌ساز فرانسوی با بادام برشته و پوره گلابی</p>
+</div>
+<!-- Price & Stepper Row -->
+<div class="flex items-center justify-between mt-2 pt-1 border-t border-surface-container">
+<div class="text-price-display font-price-display text-primary">
+                  ۱۲۰٬۰۰۰ <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">تومان</span>
+</div>
+<!-- Quantity Stepper Pill -->
+<div class="bg-secondary-container/60 rounded-full px-2 py-1 flex items-center gap-2 border border-outline-variant/30">
+<button aria-label="کاهش تعداد تارت" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="text-label-md font-label-md font-bold text-on-surface px-1">۱</span>
+<button aria-label="افزایش تعداد تارت" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 3: کولد برو پرتقال و دارچین -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[20px] p-3.5 shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex gap-3">
+<!-- Image Frame -->
+<div class="w-20 h-20 rounded-[16px] overflow-hidden bg-surface-container shrink-0 border border-secondary-container/40 relative">
+<img class="w-full h-full object-cover" data-alt="A cold brew specialty coffee infused with dehydrated orange slice and a charred Ceylon cinnamon stick in a faceted rippled highball glass. Ice cubes crystal clear with morning ambient warm sun reflections on light wood surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIBMv7gjOFBhlKtK4VQ2JTEZcAVKB75JztpE2uuCcgOwc_yGKYe0NzGGCl01SQvrykO-0-_UvK3340xoU0XEjRkIreOktEFzWCPphJQs98CGRuqwCe3ynN0haGHJpStcGPCSsCjFn-Farb21fGUu4SP21WKRbEksTsHkJHpHlZ5tT1ltR93Pi1RoXrmo4NQKjVQlXSH2ASWXKuNz5R8D8coHvEnm9QthfAoEOf8KlDBJ6mv0J-50BKRw"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest/90 backdrop-blur-xs text-primary rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px] block">ac_unit</span>
+</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-body-md font-body-md font-bold text-on-surface leading-tight">کولد برو پرتقال و دارچین</h3>
+<button aria-label="حذف نوشیدنی" class="text-outline hover:text-error transition-colors p-1 -mt-1 -ml-1" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">عصاره‌گیری سرد ۱۸ ساعته به همراه برش پرتقال خونی</p>
+</div>
+<!-- Price & Stepper Row -->
+<div class="flex items-center justify-between mt-2 pt-1 border-t border-surface-container">
+<div class="text-price-display font-price-display text-primary">
+                  ۱۰۵٬۰۰۰ <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">تومان</span>
+</div>
+<!-- Quantity Stepper Pill -->
+<div class="bg-secondary-container/60 rounded-full px-2 py-1 flex items-center gap-2 border border-outline-variant/30">
+<button aria-label="کاهش تعداد نوشیدنی" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="text-label-md font-label-md font-bold text-on-surface px-1">۱</span>
+<button aria-label="افزایش تعداد نوشیدنی" class="w-5 h-5 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-lowest active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Notes to Cafe Section -->
+<section aria-label="یادداشت سفارش" class="px-margin mb-6">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-[20px] p-4 shadow-sm">
+<label class="flex items-center gap-2 text-label-md font-label-md font-semibold text-on-surface mb-2" for="order-notes">
+<span class="material-symbols-outlined text-secondary text-[18px]">edit_note</span>
+<span>یادداشت یا توضیحات سفارش (اختیاری)</span>
+</label>
+<div class="relative">
+<textarea class="w-full rounded-xl bg-surface-container-low border border-outline-variant/30 p-3 text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none" id="order-notes" placeholder="مثال: لاته با فوم بیشتر سرو شود، یا سفارش همزمان آورده شود..." rows="2"></textarea>
+<span class="absolute bottom-2 left-2 text-label-sm font-label-sm text-outline">حداکثر ۱۰۰ حرف</span>
+</div>
+</div>
+</section>
+<!-- Botanical Loyalty Banner -->
+<div class="px-margin mb-6">
+<div class="bg-gradient-to-l from-secondary-fixed via-secondary-container to-surface-container-high border border-primary-container/20 rounded-[20px] p-3.5 flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">card_membership</span>
+</div>
+<div class="flex-1">
+<div class="text-label-md font-label-md font-bold text-on-secondary-fixed">اعمال تخفیف اشتراک بهاری کافه گل</div>
+<div class="text-body-sm font-body-sm text-on-secondary-fixed-variant">۲۰٬۰۰۰ تومان هدیه روی سفارش شما لحاظ شد</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Bill Summary Breakdown (صورت‌حساب) -->
+<section aria-label="صورت‌حساب نهایی" class="px-margin mb-6">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-[20px] p-4 shadow-sm space-y-3">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="text-label-lg font-label-lg font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">receipt_long</span>
+<span>جزئیات پرداخت</span>
+</span>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container-low px-2 py-0.5 rounded-full">شماره فاکتور: #GL-۸۹۴</span>
+</div>
+<!-- Row 1: مجموع سفارشات -->
+<div class="flex items-center justify-between text-body-md font-body-md text-on-surface-variant">
+<span>مجموع سفارشات</span>
+<span class="font-medium text-on-surface">۳۳۸٬۰۰۰ تومان</span>
+</div>
+<!-- Row 2: مالیات و خدمات -->
+<div class="flex items-center justify-between text-body-md font-body-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span>مالیات و خدمات کافه</span>
+<span class="text-label-sm font-label-sm text-primary">(مهمان کافه گل)</span>
+</span>
+<span class="font-medium text-primary">۰ تومان</span>
+</div>
+<!-- Row 3: تخفیف وفاداری -->
+<div class="flex items-center justify-between text-body-md font-body-md text-primary">
+<span class="flex items-center gap-1">
+<span>تخفیف وفاداری باشگاه مشتریان</span>
+<span class="material-symbols-outlined text-[15px]">local_offer</span>
+</span>
+<span class="font-bold text-primary">-۲۰٬۰۰۰ تومان</span>
+</div>
+<!-- Botanical Accent Line -->
+<div class="pt-2 border-t border-dashed border-outline-variant flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md font-bold text-on-surface">مبلغ قابل پرداخت نهایی</span>
+<span class="text-label-sm font-label-sm text-outline">با احتساب کلیه کسورات</span>
+</div>
+<div class="text-left">
+<span class="text-display-lg-mobile font-display-lg-mobile font-bold text-primary tracking-tight">۳۱۸٬۰۰۰</span>
+<span class="text-label-md font-label-md font-bold text-primary mr-1">تومان</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Botanical Micro Guarantee Stamp -->
+<div class="px-margin mb-4 text-center flex items-center justify-center gap-2 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>پرداخت امن شتابی با تضمین رضایت و طراوت کافه گل</span>
+</div>
+<!-- Fixed Floating Checkout & Order Submission Bar -->
+<div class="fixed bottom-0 inset-x-0 z-40 max-w-[390px] mx-auto p-margin bg-gradient-to-t from-background via-background/95 to-transparent backdrop-blur-md">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-3.5 px-space-lg rounded-[20px] shadow-lg hover:shadow-xl active:scale-[0.98] transition-all duration-200 flex items-center justify-between group" type="button">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-on-primary/20 flex items-center justify-center text-on-primary group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-[20px]">lock_clock</span>
+</div>
+<div class="text-right">
+<span class="block text-label-lg font-label-lg font-bold text-on-primary">تأیید و پرداخت نهایی</span>
+<span class="block text-label-sm font-label-sm text-on-primary-container/80 font-normal">انتقال مستقیم به درگاه بانکی شاپرک</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-black/15 px-3 py-1.5 rounded-full">
+<span class="text-label-lg font-label-lg font-bold text-on-primary">۳۱۸٬۰۰۰</span>
+<span class="text-label-sm font-label-sm text-on-primary font-normal">تومان</span>
+<span class="material-symbols-outlined text-[18px] text-on-primary mr-0.5">arrow_back</span>
+</div>
+</button>
+</div>
+</main>
+<!-- Interactive JavaScript for micro-interactions -->
+<script>
+    // Dining preference toggle state
+    const btnDineIn = document.getElementById('btn-dine-in');
+    const btnTakeaway = document.getElementById('btn-takeaway');
+    const tableSelectorSection = document.getElementById('table-selector-section');
+
+    btnDineIn.addEventListener('click', () => {
+      btnDineIn.className = "flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 bg-surface-container-lowest text-primary shadow-sm font-label-lg text-label-lg transition-all duration-200";
+      btnTakeaway.className = "flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-all duration-200";
+      tableSelectorSection.style.opacity = "1";
+      tableSelectorSection.style.pointerEvents = "auto";
+    });
+
+    btnTakeaway.addEventListener('click', () => {
+      btnTakeaway.className = "flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 bg-surface-container-lowest text-primary shadow-sm font-label-lg text-label-lg transition-all duration-200";
+      btnDineIn.className = "flex-1 py-2 px-3 rounded-full flex items-center justify-center gap-1.5 text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-all duration-200";
+      tableSelectorSection.style.opacity = "0.4";
+      tableSelectorSection.style.pointerEvents = "none";
+    });
+
+    // Theme toggle indicator micro-interaction
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    let isDark = false;
+
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIcon.textContent = 'dark_mode';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIcon.textContent = 'light_mode';
+      }
+    });
+  </script>
+</body></html>

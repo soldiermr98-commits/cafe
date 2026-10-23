@@ -1,0 +1,6 @@
+{
+  "name": "کافه گل | پلتفرم منوی دیجیتال، فروش و حسابداری کافه (Cafe Gol SaaS)",
+  "description": "سیستم جامع چندمستأجری (SaaS) منوی دیجیتال، سفارش‌گیری آنلاین، صندوق فروشگاهی (POS)، انبارداری و حسابداری کافه و رستوران با قابلیت نصب روی هاست اشتراکی لاراول",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
